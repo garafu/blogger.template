@@ -253,7 +253,6 @@ kbd {
   margin: 0 0 20px;
   padding: 5px 10px;
   position: relative;
-  /*border: 1px solid #ddd;*/
   border-radius: 4px;
 }
 
@@ -283,8 +282,7 @@ kbd {
 }
 
 .jumbotron .bg-image {
-  background-image: url("../images/stockvault-grunge-wood-texture144261.jpg");
-  /*background-image: url("../images/stockvault-heights187927.jpg");*/
+  background-image: url("//2.bp.blogspot.com/-a0sVOUkRCE4/WGXPo2UvkXI/AAAAAAAADt8/6m3lwX7KQ5g5Gi2t0VJpwhExkFeRkOHbQCLcB/s1600/jumbotron-wood.jpg");
   background-size: 100% auto;
   position: absolute;
   top: 0;
@@ -617,7 +615,7 @@ h2.page-header {
     </div>
   </header>
 
-<!-- ▼ main section ▼ -->
+<!-- ▼ jumbotron section ▼ -->
 <b:if cond='data:blog.pageType == "index"'>
   <section class='jumbotron'>
     <div class='bg-container'>
@@ -634,10 +632,12 @@ h2.page-header {
     </div>
   </section>
 </b:if>
+<!-- ▲ jumbotron section ▲ -->
 
-  <section class='container'>
+  <div class='container'>
     <div class='row'>
-      <div class='col-xs-12 col-sm-12 col-lg-8'>
+<!-- ▼ main section ▼ -->
+      <section class='col-xs-12 col-sm-12 col-lg-8'>
         <div class='container-fluid'>
 <b:section class='main' id='main' preferred='yes' showaddelement='no'>
   <b:widget id='Blog1' locked='true' title='Blog Posts' type='Blog'>
@@ -733,16 +733,80 @@ h2.page-header {
   </b:widget>
 </b:section>
         </div>
-      </div>
-    </div>
-  </section>
+      </section>
 <!-- ▲ main section ▲ -->
 <!-- ▼ sidebar section ▼ -->
-  <aside>
-    <b:section class='sidebar' id='sidebar' maxwidgets='' showaddelement='yes'>
-    </b:section>
-  </aside>
+      <aside class="col-xs-12 col-sm-6 col-lg-4">
+        <div class="widget">
+          <h2 class="page-header">Social Links</h2>
+          <ul class='nav nav-pills nav-stacked'>
+            <li class="nav-item">
+              <a href='//www.facebook.com/galifeblog' target='_blank'>
+                <i class='fa fa-facebook fa-fw'></i>
+                <span>
+                  Facebook ページ <i class='fa fa-external-link'></i>
+                </span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href='//twitter.com/galifeblog' target='_blank'>
+                <i class='fa fa-twitter fa-fw'></i>
+                <span>
+                  twitter <i class='fa fa-external-link'></i>
+                </span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href='//github.com/garafu' target='_blank'>
+                <i class='fa fa-github fa-fw'></i>
+                <span>
+                  Github / garafu <i class='fa fa-external-link'></i>
+                </span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="widget">
+          <h2 class="page-header">Special Pages</h2>
+          <ul class='nav nav-pills nav-stacked'>
+            <li class="nav-item"><a href="">Webアプリケーション開発</a></li>
+          </ul>
+        </div>
+      </aside>
+      <aside class="col-xs-12 col-sm-6 col-lg-4">
+        <b:section class='sidebar' id='sidebar' maxwidgets='' showaddelement='yes'>
+          <b:widget id='PopularPosts1' locked='false' title='Popular Posts' type='PopularPosts' version='1' visible='true'>
+            <b:includable id='main'>
+              <h2 class='popularposts-title page-header'><data:title /></h2>
+              <ul class='popularposts-list nav nav-pills nav-stacked'>
+                <b:loop var='post' values='data:posts'>
+                  <li class='popularposts-item'>
+                    <b:include name='popularposts-post' data='post' />
+                  </li>
+                </b:loop>
+              </ul>
+            </b:includable>
+            <b:includable id='popularposts-post' var='post'>
+              <a class='item-content' expr:href='data:post.href' expr:title='data:post.title'>
+                <b:if cond='data:post.thumbnail'>
+                  <div class='item-thumbnail'>
+                    <img alt='' border='0' expr:height='data:thumbnailSize' expr:src='data:post.thumbnail' expr:width='data:thumbnailSize'/>
+                  </div>
+                </b:if>
+                <div class='item-title'>
+                  <data:post.title />
+                </div>
+                <div class='item-snippet'>
+                  <data:post.snippet />
+                </div>
+              </a>
+            </b:includable>
+          </b:widget>
+        </b:section>
+      </aside>      
 <!-- ▲ sidebar section ▲ -->
+    </div>
+  </div>
 <!-- ▼ footer section ▼ -->
   <footer>
     <b:section class='footer' id='footer' maxwidgets='' showaddelement='yes'>
