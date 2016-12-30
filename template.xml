@@ -636,6 +636,9 @@ h2.page-header {
 </b:if>
 
   <section class='container'>
+    <div class='row'>
+      <div class='col-xs-12 col-sm-12 col-lg-8'>
+        <div class='container-fluid'>
 <b:section class='main' id='main' preferred='yes' showaddelement='no'>
   <b:widget id='Blog1' locked='true' title='Blog Posts' type='Blog'>
     <!-- main section - main -->
@@ -729,6 +732,9 @@ h2.page-header {
     <!-- main section - index-post -->
   </b:widget>
 </b:section>
+        </div>
+      </div>
+    </div>
   </section>
 <!-- ▲ main section ▲ -->
 <!-- ▼ sidebar section ▼ -->
