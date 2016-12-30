@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html>
-<html xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+<html xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
 <head>
   <b:include data='blog' name='all-head-content'/>
   <title>
@@ -13,23 +13,723 @@
     </b:if>
   </title>
   <b:skin></b:skin>
+  <link href='//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' rel='stylesheet' type='text/css' />
+  <link href='//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' rel='stylesheet' />
+  <style type='text/css'>
+/* shCore.css */
+.syntaxhighlighter{border: 1px solid #ddd;}.syntaxhighlighter a,.syntaxhighlighter code,.syntaxhighlighter div,.syntaxhighlighter table,.syntaxhighlighter table caption,.syntaxhighlighter table tbody,.syntaxhighlighter table td,.syntaxhighlighter table thead,.syntaxhighlighter table tr,.syntaxhighlighter textarea{-moz-border-radius:0 0 0 0!important;-webkit-border-radius:0 0 0 0!important;background:0 0!important;border:0!important;bottom:auto!important;float:none!important;height:20px!important;left:auto!important;line-height:20px!important;margin:0!important;outline:0!important;overflow:visible!important;padding:0!important;position:static!important;right:auto!important;text-align:left!important;top:auto!important;vertical-align:baseline!important;width:auto!important;box-sizing:content-box!important;font-size:14px!important}.syntaxhighlighter{width:100%!important;margin:1em 0!important;position:relative!important;overflow:auto!important;font-size:1em!important}.syntaxhighlighter.source{overflow:hidden!important}.syntaxhighlighter .bold{font-weight:700!important}.syntaxhighlighter .italic{font-style:italic!important}.syntaxhighlighter .line{white-space:pre!important}.syntaxhighlighter table{width:100%!important;margin:10px 0!important}.syntaxhighlighter table caption{text-align:left!important;padding:.5em 0 .5em 1em!important}.syntaxhighlighter table td.code{width:100%!important}.syntaxhighlighter table td.code .container{position:relative!important;height:auto!important}.syntaxhighlighter table td.code .container textarea{box-sizing:border-box!important;position:absolute!important;left:0!important;top:0!important;width:100%!important;height:100%!important;border:0 0!important;background:#fff!important;padding-left:1em!important;overflow:hidden!important;white-space:pre!important}.syntaxhighlighter table td.gutter .line{text-align:right!important;padding:0 .5em 0 1em!important}.syntaxhighlighter table td.code .line{padding:0 1em!important}.syntaxhighlighter.nogutter td.code .container textarea,.syntaxhighlighter.nogutter td.code .line{padding-left:0!important}.syntaxhighlighter.show{display:block!important}.syntaxhighlighter.collapsed table{display:none!important}.syntaxhighlighter.collapsed .toolbar{padding:.1em .8em 0!important;font-size:1em!important;position:static!important;width:auto!important;height:auto!important}.syntaxhighlighter.collapsed .toolbar span{display:inline!important;margin-right:1em!important}.syntaxhighlighter.collapsed .toolbar span a{padding:0!important;display:none!important}.syntaxhighlighter.collapsed .toolbar span a.expandSource{display:inline!important}.syntaxhighlighter .toolbar{position:absolute!important;right:1px!important;top:1px!important;width:11px!important;height:11px!important;font-size:10px!important;z-index:1!important;display:none!important}.syntaxhighlighter .toolbar span.title{display:inline!important}.syntaxhighlighter .toolbar a{display:block!important;text-align:center!important;text-decoration:none!important;padding-top:1px!important}.syntaxhighlighter .toolbar a.expandSource{display:none!important}.syntaxhighlighter.ie{font-size:.9em!important;padding:1px 0!important}.syntaxhighlighter.ie .toolbar{line-height:8px!important}.syntaxhighlighter.ie .toolbar a{padding-top:0!important}
+/* shThemeDefault.css */
+.syntaxhighlighter,.syntaxhighlighter .line.alt1,.syntaxhighlighter .line.alt2{background-color:#f5f5f5!important}.syntaxhighlighter .line.highlighted.alt1,.syntaxhighlighter .line.highlighted.alt2{background-color:#add6ff!important}.syntaxhighlighter .line.highlighted.number,.syntaxhighlighter table caption{color:#000!important}.syntaxhighlighter .gutter{color:#afafaf!important}.syntaxhighlighter .gutter .line{border-right:1px solid #ddd!important}.syntaxhighlighter .gutter .line.highlighted{background-color:#add6ff!important}.syntaxhighlighter.printing .line .content{border:0 0!important}.syntaxhighlighter.collapsed{overflow:visible!important}.syntaxhighlighter.collapsed .toolbar{color:blue!important;background:#fff!important;border:1px solid #6ce26c!important}.syntaxhighlighter.collapsed .toolbar a{color:blue!important}.syntaxhighlighter.collapsed .toolbar a:hover{color:red!important}.syntaxhighlighter .toolbar{color:#fff!important;background:#6ce26c!important;border:0 0!important;display:none}.syntaxhighlighter .toolbar a{color:#fff!important}.syntaxhighlighter .toolbar a:hover{color:#000!important}.syntaxhighlighter .plain,.syntaxhighlighter .plain a{color:#333!important}.syntaxhighlighter .comments,.syntaxhighlighter .comments a{color:green!important}.syntaxhighlighter .string,.syntaxhighlighter .string a{color:maroon!important}.syntaxhighlighter .keyword{color:#00f!important}.syntaxhighlighter .preprocessor{color:gray!important}.syntaxhighlighter .variable{color:#a70!important}.syntaxhighlighter .value{color:#090!important}.syntaxhighlighter .functions{color:#ff1493!important}.syntaxhighlighter .constants{color:#06c!important}.syntaxhighlighter .script{font-weight:700!important;color:#069!important;background-color:none!important}.syntaxhighlighter .color1,.syntaxhighlighter .color1 a{color:green!important}.syntaxhighlighter .color2,.syntaxhighlighter .color2 a{color:#ff1493!important}.syntaxhighlighter .color3,.syntaxhighlighter .color3 a{color:red!important}
+  </style>
+  <style type='text/css'>
+/*---------------------------------------------------
+    Bootstrap デフォルトスタイル の 上書き
+---------------------------------------------------*/
+body {
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  padding-top: 50px;
+}
+
+kbd {
+  padding: 2px 4px;
+  font-size: 90%;
+  color: #fff;
+  background-color: #333;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 rgba(0,0,0,.25);
+}
+
+.btn-outline-default,
+.btn-outline-default:focus {
+  background-color: transparent;
+  color: #cccccc;
+  background-image: none;
+  border-color: #cccccc;
+}
+
+.btn-outline-default:link,
+.btn-outline-default:visited,
+.btn-outline-default:active,
+.btn-outline-default:hover {
+  color: #fff;
+  background-color: #ccc;
+  border-color: #ccc;
+}
+
+/*---------------------------------------------------
+    共通ヘッダー (header-xxx)
+---------------------------------------------------*/
+/* Bootstrap style overwrite */
+.navbar {
+  margin-bottom: 0;
+  /*background-color: #2c3e50;*/
+}
+
+.navbar a {
+  cursor: pointer;
+}
+
+.navbar-brand {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 8px 15px;
+  line-height: 34px;
+}
+
+.navbar-brand h1 {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 34px;
+}
+
+.navbar-default {
+  background-color: #333333;
+  border-color: transparent;
+}
+
+.navbar-default a.navbar-brand,
+.navbar-default .navbar-nav>li>a {
+  color: #dddddd;
+  text-decoration: none;
+}
+
+.navbar-default a.navbar-brand:hover,
+.navbar-default .navbar-nav>li>a:hover {
+  color: #ffffff;
+}
+
+/*.navbar-container {
+  position: relative;
+}
+
+.navbar-search {
+  /*position: absolute;* /
+  top: 0;
+  right: 0;
+  margin: 0 15px;
+}*/
+
+/*@media (max-width: 991px) {
+  .navbar-search-form {
+    display: none;
+  }
+}*/
+
+/* xs size */
+@media (max-width: 767px) {
+  .navbar-menu {
+    display: none;
+  }
+
+  .navbar-menu.in {
+    display: block;
+  }
+
+  .header-btn-toggle-menu {
+    margin-right: 15px;
+    float: right;
+  }
+}
+
+/* sm size only*/
+@media (min-width: 768px) and (max-width: 991px) {
+  .navbar-container {
+    position: relative;
+  }
+
+  .navbar-form {
+    position: absolute;
+    top: 0;
+    left: 6em;
+    right: 0;
+    margin-left: 15px;
+    padding: 0;
+    display: none;
+  }
+
+  .navbar-form.in {
+    display: block;
+  }
+
+  .form-control {
+    width: 100%;
+  }
+
+  .navbar-form-group {
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .navbar-form-group .input-group {
+    width: 100%;
+  }
+
+  .navbar-form-group .input-group-btn {
+    width: 38px !important;
+  }
+
+  .header-btn-toggle-search{
+    margin-right: 0;
+  }
+}
+
+/*@media (max-width: 991px) {
+    .navbar-header {
+        float: none;
+    }
+    .navbar-toggle {
+        display: block;
+    }
+    .navbar-collapse {
+        border-top: 1px solid transparent;
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+    }
+    .navbar-collapse.collapse {
+        display: none!important;
+    }
+    .navbar-nav {
+        float: none!important;
+        margin: 7.5px -15px;
+    }
+    .navbar-nav>li {
+        float: none;
+    }
+    .navbar-nav>li>a {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .navbar-text {
+        float: none;
+        margin: 15px 0;
+    }
+    /* since 3.1.0 * /
+    .navbar-collapse.collapse.in { 
+        display: block!important;
+    }
+    .collapsing {
+        overflow: hidden!important;
+    }
+}*/
+
+/*---------------------------------------------------
+    共通フッター (footer-xxx)
+---------------------------------------------------*/
+.footer {
+  margin-top: 100px;
+}
+
+.footer ul, .footer ol{
+  list-style: none;
+  padding-left: 0;
+}
+
+.footer li {
+  padding-left: 15px;
+}
+
+.footer-top {
+  background-color: #efefef;
+}
+
+.footer-bottom {
+  background-color: #333333;
+  color: #dddddd;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.footer-bottom a {
+  color: #dddddd;
+}
+
+/*---------------------------------------------------
+    共通サイドメニュー
+---------------------------------------------------*/
+/* popular posts */
+
+.PopularPosts .item-content {
+  background: #fff;
+  margin: 0 0 20px;
+  padding: 5px 10px;
+  position: relative;
+  /*border: 1px solid #ddd;*/
+  border-radius: 4px;
+}
+
+.PopularPosts .item-thumbnail {
+  float: left;
+  margin: 0 5px 5px 0;
+}
+
+
+/*---------------------------------------------------
+    トップページ (index-xxx)
+---------------------------------------------------*/
+/* Blogger style overwrite */
+.jumbotron {
+  color: #efefef;
+  position: relative;
+  background: transparent;
+}
+
+.jumbotron .bg-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.jumbotron .bg-image {
+  background-image: url("../images/stockvault-grunge-wood-texture144261.jpg");
+  /*background-image: url("../images/stockvault-heights187927.jpg");*/
+  background-size: 100% auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.jumbotron .bg-cover {
+  background-color: #000;
+  opacity: 0.4;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.index-post-item {
+  background: #fff;
+  margin: 0 0 20px;
+  position: relative;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.index-post-item a {
+  color: #222;
+  text-decoration: none;
+  display: inline-block;
+  width: 100%;
+}
+
+.index-post-item a:hover {
+  color: #444;
+  background-color: #efefef;
+  border-color: #adadad;
+}
+
+.index-post-title {
+  margin: 0;
+  padding: 10px 20px;
+}
+
+.index-post-header {
+  margin: 10px 20px;
+}
+
+.index-post-body {
+  margin: 0px 20px;
+  min-height: 120px;
+}
+
+.index-post-thumbnail {
+  float: left;
+  margin-right: 10px;
+  width: 150px;
+  height: 120px;
+  background: center 0 no-repeat transparent;
+  background-size: 150px auto;
+}
+
+.index-post-footer {
+  clear: both;
+  color: #888;
+  font-size: 12px;
+  padding: 10px 20px;
+}
+
+.post-author, .post-timestamp {
+  margin-right: 1em;
+}
+
+/*---------------------------------------------------
+    記事ページ (post-xxx)
+---------------------------------------------------*/
+
+/* social buttons
+--------------------------------------*/
+.socialbutton {
+  display: inline-block;
+  height: 48px;
+  width: 80px;
+  margin: 5px;
+  text-align: center;
+  border-radius: 4px;
+  text-decoration: none !important;
+}
+.socialbutton-count {
+  display: block;
+  height: 20px;
+  margin: 4px 4px 0 4px;
+  line-height: 20px;
+  background-color: #ffffff;
+  color: #000000;
+  border-radius: 4px;
+}
+.socialbutton-button {
+  display: block;
+  height: 24px;
+  line-height: 24px;
+  color: #ffffff;
+}
+.socialbutton-icon {
+  background-image: url(//1.bp.blogspot.com/-SeLVOiP_9qo/VQTRJBi0W2I/AAAAAAAAC80/tOuJiDJEw7k/s1600/spritesheet.png);
+  background-repeat: no-repeat;
+  display: inline-block;
+  margin: 5px 5px 5px 0;
+}
+.socialbutton-icon-facebook {
+  width: 14px;
+  height: 14px;
+  background-position: -5px -5px;
+}
+.socialbutton-icon-google-plus {
+  width: 13px;
+  height: 14px;
+  background-position: -5px -29px;
+}
+.socialbutton-icon-hatebu {
+  width: 17px;
+  height: 14px;
+  background-position: -5px -53px;
+}
+.socialbutton-icon-pocket {
+  width: 16px;
+  height: 14px;
+  background-position: -5px -77px;
+}
+.socialbutton-icon-twitter {
+  width: 17px;
+  height: 14px;
+  background-position: -5px -101px;
+}
+.socialbutton-name {
+  vertical-align: top;
+}
+.twitter-share-button {
+  background-color: #55acee;
+}
+.twitter-share-button:hover {
+  background-color: #4387ba;
+}
+.facebook-share-button {
+  background-color: #3c568b;
+}
+.facebook-share-button:hover {
+  background-color: #2a3c61;
+}
+.plusone-share-button {
+  background-color: #dc4b39;
+}
+.plusone-share-button:hover {
+  background-color: #c24332;
+}
+.hatena-share-button {
+  background-color: #00a4de;
+}
+.hatena-share-button:hover {
+  background-color: #007dab;
+}
+.pocket-share-button {
+  background-color: #ee4056;
+}
+.pocket-share-button:hover {
+  background-color: #ba3244;
+}
+/* Custom styles
+------------------------------------ */
+.post-title {
+  padding-bottom: 9px;
+  margin: 40px 0 20px;
+  border-bottom: 1px solid #eeeeee;
+}
+
+.post-header {
+  padding-bottom: 9px;
+  margin: 20px 0;
+  border-bottom: 1px solid #eeeeee;
+}
+
+h2.strong, h3.strong, h4.strong {
+  padding: 14px 20px;
+  border-left: 5px solid #dddddd;
+}
+
+h4.strong {
+  font-weight: bold;
+}
+
+.download {
+  display: inline-block;
+  height: 34px;
+  line-height: 20px;
+  border: 1px solid #dddddd;
+  padding: 6px 9px 6px 32px;
+  background: url('//3.bp.blogspot.com/-krLMDIRWeUA/Uib3IytA8OI/AAAAAAAACT8/C_ZAZXlMqWY/s1600/icon_download_s.png') 6px center no-repeat;
+}
+
+.download:hover {
+  background-color: #f5f5f5;
+}
+
+.openwindow {
+  display: inline-block;
+  background: url('//2.bp.blogspot.com/-5AR9ljSPAoA/UgW_m-UCXzI/AAAAAAAACOw/69295pyU7WQ/s1600/openwindow.png') center center no-repeat;
+  width: 14px;
+  height: 1em;
+  margin-left: 5px;
+}
+
+#btn-top {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 50px;
+  height: 50px;
+  margin: 0 50px 50px 0;
+  font-size: 50px;
+  cursor: pointer;
+  display: block;
+}
+
+/* related posts
+--------------------------*/
+.RelatedPosts {
+  margin: 5em 0;
+}
+
+/*.RelatedPosts h2 {
+  padding: 10px;
+  color: #222222;
+  font-family: 'Open Sans',sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 1.2em;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  border-bottom: 1px solid #D3D3D3;
+  margin-top: 5px;
+}*/
+
+.RelatedPosts ul {
+  list-style-type: none;
+  margin: 0 !important;
+  padding: 0;
+}
+
+.RelatedPosts .item-content {
+  /*border: 1px solid #ddd;*/
+  padding: 10px;
+  margin-bottom: 10px;
+  /*-webkit-box-shadow: 1px 1px 2px 0 #d0d0d0;
+  -moz-box-shadow: 1px 1px 2px 0 #d0d0d0;
+  box-shadow: 1px 1px 2px 0 #d0d0d0;*/
+  /*border-radius: 4px;*/
+  min-height: 92px;
+}
+
+.RelatedPosts .item-thumbnail {
+  float: left;
+  margin: 0 5px 5px 0;
+}
+
+.RelatedPosts img {
+  border-radius: 10px;
+  padding: 3px;
+}
+
+h2.page-header {
+  font-size: 24px;
+}
+  </style>
 </head>
 <body>
+
+  <header class='navbar navbar-default navbar-fixed-top navbar-inverse' id='navbar' role='navigation'>
+    <div class='container navbar-container'>
 <!-- ▼ header section ▼ -->
-  <header>
-    <b:section class='header' id='header' maxwidgets='1' showaddelement='no'>
-      <b:widget id='Header1' locked='true' title='' type='Header'>
-      </b:widget>
-    </b:section>
-  </header>
+<b:section class='header' id='header' maxwidgets='1' showaddelement='no'>
+  <b:widget id='Header1' locked='true' title='' type='Header'>
+    <!-- header section -main- -->
+    <b:includable id='main' var='top'>
+      <div class='navbar-header'>
+        <button class='btn btn-outline-default navbar-btn visible-xs header-btn-toggle-menu' id='btnNavbarToggleMenu'>
+          <i class='fa fa-bars' aria-hidden='true'></i>
+        </button>
+        <a href='/' class='navbar-brand'>
+          <h1><data:blog.title /></h1>
+        </a>
+      </div>
+
+      <div class='navbar-menu' id='navbar-menu'>
+        <ul class='nav navbar-nav' id='navbar-menu-list'>
+          <li class='nav-item'><a href=''>記事一覧</a></li>
+          <li class='nav-item dropdown'>
+            <a class='dropdown-toggle' id='navbar-menu-dropdown-sp' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>特集記事<span class='caret'></span></a>
+            <ul class='dropdown-menu' aria-labelledby='navbar-menu-dropdown-sp'>
+              <li class='dropdown-item'><a class='nav-item' href='#'>Webアプリケーション開発</a></li>
+            </ul>
+          </li>
+          <li class='nav-item'><a href=''>製品一覧</a></li>
+          <li class='nav-item'><a href=''>このブログについて</a></li>
+        </ul>
+
+        <div class='nav navbar-nav navbar-right visible-sm header-btn-toggle-search'>
+          <a class='btn btn-outline-default navbar-btn' id='btnNavbarToggleSearch'>
+            <i class='fa fa-search' aria-hidden='true'></i>
+          </a>
+        </div>
+
+        <form action='/search' class='nav navbar-nav navbar-form navbar-right' method='get' role='search' id='frmNavbarSearch'>
+          <div class='form-group navbar-form-group'>
+            <div class='input-group'>
+              <input type='text' class='form-control' placeholder='ブログ内を検索' />
+              <div class='input-group-btn'>
+                <button class='btn btn-default' type='submit'>
+                  <i class='fa fa-search' aria-hidden='true'></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </b:includable>
+    <!-- header section -main- -->
+  </b:widget>
+</b:section>
 <!-- ▲ header section ▲ -->
+    </div>
+  </header>
+
 <!-- ▼ main section ▼ -->
-  <article>
-    <b:section class='main' id='main' preferred='yes' showaddelement='no'>
-      <b:widget id='Blog1' locked='true' title='Blog Posts' type='Blog'>
-      </b:widget>
-    </b:section>
-  </article>
+<b:if cond='data:blog.pageType == "index"'>
+  <section class='jumbotron'>
+    <div class='bg-container'>
+      <div class='bg-image'></div>
+      <div class='bg-cover'></div>
+    </div>
+    <div class='container'>
+      <h1>C# &amp; JavaScript</h1>
+      <p>C# と JavaScript を中心にアプリケーション開発に関する技術ネタを記事にします。 C# は Windowsネイティブアプリ開発 と Webアプリケーション開発 を、JavaScript は Webアプリケーション開発
+        を扱います。
+      </p>
+      <p>目的ごとに記事を集めた「特集記事」は以下へ！</p>
+      <p><a href='' class='btn btn-default'>Webアプリケーション開発 </a></p>
+    </div>
+  </section>
+</b:if>
+
+  <section class='container'>
+<b:section class='main' id='main' preferred='yes' showaddelement='no'>
+  <b:widget id='Blog1' locked='true' title='Blog Posts' type='Blog'>
+    <!-- main section - main -->
+    <b:includable id='main' var='top'>
+      <b:if cond='data:blog.pageType == "index"'>
+        <b:include name='index' var='top' />
+      <b:elseif cond='data:blog.pageType == "archive"' />
+        <b:include name='archive' var='top' />
+      <b:elseif cond='data:blog.pageType == "item"' />
+        <b:include name='item' var='top' />
+      <b:elseif cond='data:blog.pageType == "static_page"' />
+        <b:include name='static_page' var='top' />
+      <b:else />
+        <h1>ERROR</h1>
+      </b:if>
+    </b:includable>
+    <!-- main section - main -->
+    <!-- main section - index -->
+    <b:includable id='index' var='top'>
+      <h1>index</h1>
+      <div class='index-post-list'>
+        <b:loop var='post' values='data:posts'>
+          <b:include name='index-post' data='post' />
+        </b:loop>
+      </div>
+      <nav class='text-center'>
+        <ul class='pagination'>
+          <li class='disabled'>
+            <a href=''><i class='fa fa-angle-double-left' aria-hidden='true'></i></a>
+          </li>
+          <li><a href=''>1</a></li>
+          <li><a href=''>2</a></li>
+          <li><a href=''>3</a></li>
+          <li><a href=''>4</a></li>
+          <li>
+            <a href=''><i class='fa fa-angle-double-right' aria-hidden='true'></i></a>
+          </li>
+        </ul>
+      </nav>
+    </b:includable>
+    <!-- main section - index -->
+    <!-- main section - archive -->
+    <b:includable id='archive' var='top'>
+      <h1>archive</h1>
+    </b:includable>
+    <!-- main section - archive -->
+    <!-- main section - item -->
+    <b:includable id='item' var='top'>
+      <h1>item</h1>
+    </b:includable>
+    <!-- main section - item -->
+    <!-- main section - static -->
+    <b:includable id='static' var='top'>
+      <h1>static_page</h1>
+    </b:includable>
+    <!-- main section - static -->
+    <!-- main section - index-post -->
+    <b:includable id='index-post' var='post'>
+      <div class='index-post-item hentry'>
+        <h2 class='index-post-title entry-title'>
+          <data:post.title />
+        </h2>
+        <div class='index-post-header'>
+        </div>
+        <div class='index-post-body'>
+          <div expr:id='"summary" + data:post.id' style='display:none;'>
+            <data:post.body/>
+          </div>
+        </div>
+        <div class='index-post-footer'>
+          <span class='post-author vcard'>
+            <i class='fa fa-user'></i>
+            <span class='fn'><data:post.author /></span>
+          </span>
+          <span class='post-timestamp'>
+            <i class='fa fa-clock-o'></i>
+            <abbr class='published updated' expr:title='data:post.timestampISO8601'>
+              <data:post.timestamp />
+            </abbr>
+          </span>
+          <span class='post-labels'>
+            <i class='fa fa-tags'></i>
+            <b:loop var='label' values='data:post.labels'>
+              <data:label.name/><b:if cond='data:label.isLast != "true"'>,</b:if>
+            </b:loop>
+          </span>
+        </div>
+        <script>var SUMMARY_TARGET_LIST = SUMMARY_TARGET_LIST || []; SUMMARY_TARGET_LIST[SUMMARY_TARGET_LIST.length] = { id: 'summary<data:post.id />', url: '<data:post.url />', title: '<data:post.title />' };</script>
+      </div>
+    </b:includable>
+    <!-- main section - index-post -->
+  </b:widget>
+</b:section>
+  </section>
 <!-- ▲ main section ▲ -->
 <!-- ▼ sidebar section ▼ -->
   <aside>
@@ -41,10 +741,127 @@
   <footer>
     <b:section class='footer' id='footer' maxwidgets='' showaddelement='yes'>
     </b:section>
-    <div class="copyrights" style="clear: both;">
+    <div class='copyrights' style='clear: both;'>
     Copyrights © 2017 Your blogger template
     </div>
   </footer>
 <!-- ▲ footer section ▲ -->
+<!-- script -->
+  <script src='//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+  <script src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
+  <script>
+// 定数
+var SUMMARY_TARGET_LIST = SUMMARY_TARGET_LIST || [];
+var BLOG_PAGE_TYPE = '<data:blog.pageType />';
+
+(function () {
+    // 名前空間の作成
+    var garafu = {};
+    garafu.nav = {};
+    garafu.idx = {};
+
+    garafu.idx.SUMMARY_TEXT_MAX_COUNT = 400;
+
+    /**
+     * Navbar に関する機能を初期化します。
+     */
+    garafu.nav.init = function () {
+        $('#btnNavbarToggleSearch').on('click', garafu.nav.btnNavbarToggleSearch_onclick);
+        $('#frmNavbarSearch input').on('click', false);
+        $('#btnNavbarToggleMenu').on('click', garafu.nav.btnNavbarToggleMenu_onclick);
+    };
+
+    garafu.nav.btnNavbarToggleSearch_onclick = function (event) {
+        $('#frmNavbarSearch').toggleClass('in');
+        $('#frmNavbarSearch input').val('').focus();
+
+        window.setTimeout(()=>{
+            var callback = function (event) {
+                $('#frmNavbarSearch').toggleClass('in');
+                $(document.body).off('click', callback);
+            };
+
+            $(document.body).on('click', callback);
+        }, 100);
+    };
+
+    garafu.nav.btnNavbarToggleMenu_onclick = function (event) {
+        $('#navbar-menu').toggleClass('in');
+    };
+
+    /**
+     * Index に関する機能を初期化します。
+     */
+    garafu.idx.init = function () {
+      var i, item;
+      
+      if (BLOG_PAGE_TYPE != 'index') {
+        return;
+      }
+
+      for (i = SUMMARY_TARGET_LIST.length; i--;) {
+          item = SUMMARY_TARGET_LIST[i];
+          garafu.idx.createSummary(item.id, item.url, item.title);
+      }
+    };
+
+    garafu.idx.createSummary = function (id, url, title) {
+        var SUMMARY_TEXT_MAX_COUNT = garafu.idx.SUMMARY_TEXT_MAX_COUNT;
+        var NO_IMAGE_SRC = '//4.bp.blogspot.com/-9mCCaXTpn9I/VN4hDMsFXlI/AAAAAAAAC6U/i84N2Ng37Ik/s1600/noimage.png';
+        var $body, text, summary, $anchor, $container;
+
+        $body = $(document.getElementById(id));
+
+        // 画像取得
+        var src = $body.find('img:first').attr('src') || NO_IMAGE_SRC;
+        
+        // サムネイル作成
+        var $thumbnail = $(document.createElement('span'));
+        $thumbnail.css('background-image', 'url(' + src + ')');
+        $thumbnail.addClass('index-post-thumbnail');
+
+        // 本文取得
+        text = $body.text() || '';
+        text = text.replace(/&lt;!--[\s\S]*--&gt;/g, '');
+        text = jQuery.trim(text);
+
+        // サマリ作成
+        if (text.length > SUMMARY_TEXT_MAX_COUNT) {
+            summary = text.substr(0, SUMMARY_TEXT_MAX_COUNT - 4);
+            summary += ' ...';
+        } else {
+            summary = text;
+        }
+        
+        var $summary = $(document.createElement('div'));
+        $summary.addClass('index-post-summary');
+        $summary.text(summary);
+
+        // サマリ要素表示
+        $body.empty();
+        $body.append($thumbnail);
+        $body.append($summary);
+        $body.show();
+        
+        // アンカータグの生成
+        $anchor = $(document.createElement('a'));
+        $anchor.attr('href', url);
+        $anchor.attr('title', title);
+        
+        // DOMの再構築
+        $container = $body.parents('.index-post-item');
+        $container.children('a').remove();
+        $anchor.append($container.children());
+        $container.append($anchor);
+    };
+
+    // ドキュメント読み込み後のエントリーポイント
+    $(document).ready(function (event) {
+        garafu.nav.init();
+        garafu.idx.init();
+    });
+})();
+  </script>
+<!-- script -->
 </body>
 </html>
