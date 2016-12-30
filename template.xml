@@ -12,7 +12,7 @@
       Page Not Found - <data:blog.title/>
     </b:if>
   </title>
-  <b:skin></b:skin>
+  &lt;style type="text/css"&gt;&lt;!-- /*<b:skin><![CDATA[*/]]></b:skin>
   <link href='//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' rel='stylesheet' type='text/css' />
   <link href='//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' rel='stylesheet' />
   <style type='text/css'>
@@ -228,10 +228,85 @@ kbd {
   padding-left: 15px;
 }
 
+/* footer top */
 .footer-top {
   background-color: #efefef;
 }
 
+.footer-top h2.page-header {
+  border-color: #ddd;
+}
+
+.footer-top a:hover {
+  background-color: #ddd !important;
+}
+
+/* blog archives */
+.BlogArchive {
+  text-align: left
+}
+
+.BlogArchive a {
+  text-decoration: none;
+  position: relative;
+  display: block;
+  padding: 10px 15px;
+  border-radius: 4px;
+}
+
+.BlogArchive a:hover {
+  /*background-color: #eee;*/
+}
+
+.BlogArchive .toggle {
+  cursor: pointer;
+  font-family: Arial, sans-serif
+}
+
+.BlogArchive .toggle-open {
+  _font-size: 1.7em;
+  line-height: .6em
+}
+
+.BlogArchive a.post-count-link {
+  /*display: inline-block;*/
+  margin-left: 3em;
+}
+
+.BlogArchive a.toggle {
+  color: inherit;
+  /*display: inline-block;*/
+  position: absolute;
+}
+
+.BlogArchive ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  list-style-image: none;
+  border-width: 0
+  position: relative;
+}
+
+.BlogArchive ul li {
+  background: none;
+  list-style: none;
+  list-style-image: none;
+  list-style-position: outside;
+  border-width: 0;
+  padding-left: 15px;
+  background-image: none
+}
+
+.BlogArchive ul ul li {
+  padding-left: 1.2em
+}
+
+.BlogArchive .collapsed ul {
+  display: none
+}
+
+/* footer bottom */
 .footer-bottom {
   background-color: #333333;
   color: #dddddd;
@@ -737,7 +812,7 @@ h2.page-header {
 <!-- ▲ main section ▲ -->
 <!-- ▼ sidebar section ▼ -->
       <aside class="col-xs-12 col-sm-6 col-lg-4">
-        <div class="widget">
+        <div class="widget SocialLinks">
           <h2 class="page-header">Social Links</h2>
           <ul class='nav nav-pills nav-stacked'>
             <li class="nav-item">
@@ -766,7 +841,7 @@ h2.page-header {
             </li>
           </ul>
         </div>
-        <div class="widget">
+        <div class="widget SpecialPages">
           <h2 class="page-header">Special Pages</h2>
           <ul class='nav nav-pills nav-stacked'>
             <li class="nav-item"><a href="">Webアプリケーション開発</a></li>
@@ -807,16 +882,237 @@ h2.page-header {
 <!-- ▲ sidebar section ▲ -->
     </div>
   </div>
+
+  <footer class='footer'>
 <!-- ▼ footer section ▼ -->
-  <footer>
-    <b:section class='footer' id='footer' maxwidgets='' showaddelement='yes'>
-    </b:section>
-    <div class='copyrights' style='clear: both;'>
-    Copyrights © 2017 Your blogger template
+    <div class='footer-top'>
+      <div class='container'>
+        <div class='row'>
+          <div class='col-xs-12 col-sm-4 col-md-4 col-lg-4'>
+            <b:section class='footer1' id='footer1' maxwidgets='' showaddelement='yes'>
+              <b:widget id='Label1' locked='false' title='Labels' type='Label' version='1' visible='true'>
+                <b:includable id='main'>
+                  <h2 class='page-header'><data:title /></h2>
+                  <ul class='nav nav-pills nav-stacked'>
+                    <b:loop var='label' values='data:labels'>
+                      <b:include name='labels-label' data='label' />
+                    </b:loop>
+                  </ul>
+                </b:includable>
+                <b:includable id='labels-label'>
+                  <li class='nav-item'>
+                    <a expr:href='data:label.url' expr:title='data:label.name'>
+                      <span><data:label.name /></span>
+                      <span class='badge'><data:label.count /></span>
+                    </a>
+                  </li>
+                </b:includable>
+              </b:widget>
+            </b:section>
+          </div>
+          <div class='col-xs-12 col-sm-4 col-md-4 col-lg-4'>
+            <b:section class='footer2' id='footer2' maxwidgets='' showaddelement='yes'>
+              <b:widget id='BlogArchive1' locked='false' title='Archives' type='BlogArchive' version='1' visible='true'>
+                <b:includable id='main'>
+                  <h2 class='page-header'><data:title /></h2>
+                  <div class='widget-content'>
+                    <div id='ArchiveList'>
+                      <div expr:id='data:widget.instanceId + "_ArchiveList"'>
+                        <b:if cond='data:style == "HIERARCHY"'>
+                          <b:include data='data' name='interval'/>
+                        <b:elseif cond='data:style == "FLAT"' />
+                          <b:include data='data' name='flat'/>
+                        <b:elseif cond='data:style == "MENU"' />
+                          <b:include data='data' name='menu'/>
+                        </b:if>
+                      </div>
+                    </div>
+                  </div>
+                </b:includable>
+                <b:includable id='flat' var='data'>
+                  <ul class='flat'>
+                    <b:loop values='data:data' var='i'>
+                      <li class='archivedate'>
+                        <a expr:href='data:i.url'>
+                          <data:i.name/>
+                        </a> (<data:i.post-count/>)
+                      </li>
+                    </b:loop>
+                  </ul>
+                </b:includable>
+                <b:includable id='interval' var='intervalData'>
+                  <b:loop values='data:intervalData' var='i'>
+                    <ul class='hierarchy'>
+                      <li expr:class='"archivedate " + data:i.expclass'>
+                        <b:include data='i' name='toggle'/>
+                        <a class='post-count-link' expr:href='data:i.url'>
+                          <data:i.name/>
+                          <span class='badge post-count' dir='ltr'><data:i.post-count/></span>
+                        </a>
+                        <b:if cond='data:i.data'>
+                          <b:include data='i.data' name='interval'/>
+                        </b:if>
+                        <b:if cond='data:i.posts'>
+                          <b:include data='i.posts' name='posts'/>
+                        </b:if>
+                      </li>
+                    </ul>
+                  </b:loop>
+                </b:includable>
+                <b:includable id='menu' var='data'>
+                  <select expr:id='data:widget.instanceId + "_ArchiveMenu"'>
+                    <option value=''>
+                      <data:title/>
+                    </option>
+                    <b:loop values='data:data' var='i'>
+                      <option expr:value='data:i.url'>
+                        <data:i.name/> (<data:i.post-count/>)
+                      </option>
+                    </b:loop>
+                  </select>
+                </b:includable>
+                <b:includable id='posts' var='posts'>
+                  <ul class='posts'>
+                    <b:loop values='data:posts' var='i'>
+                      <li>
+                        <a expr:href='data:i.url' expr:title='data:title'>
+                          <data:i.title/>
+                        </a>
+                      </li>
+                    </b:loop>
+                  </ul>
+                </b:includable>
+                <b:includable id='toggle' var='interval'>
+                  <b:if cond='data:interval.toggleId'>
+                    <b:if cond='data:interval.expclass == "expanded"'>
+                      <a class='toggle' href='javascript:void(0)'>
+                        <span class='zippy toggle-open'>&#9660;&#160;</span>
+                      </a>
+                    <b:else/>
+                      <a class='toggle' href='javascript:void(0)'>
+                        <span class='zippy'>&#9658;&#160;</span>
+                      </a>
+                    </b:if>
+                  </b:if>
+                </b:includable>
+              </b:widget>
+            </b:section>
+          </div>
+          <div class='col-xs-12 col-sm-4 col-md-4 col-lg-4'>
+            <b:section class='footer3' id='footer3' maxwidgets='' showaddelement='yes'>
+              <b:widget id='HTML4' locked='false' title='Pages' type='HTML' version='1' visible='true'>
+                <b:includable id='main'>
+                  <h2 class='page-header'><data:title /></h2>
+                  <ul class='nav nav-pills nav-stacked footer-page-list'>
+                    <li class='nav-item'>
+                      <a href='//garafu.blogspot.com/'>
+                        <i class='fa fa-home fa-fw'/>
+                        <span>ホーム</span>
+                      </a>
+                    </li>
+                    <li class='nav-item'>
+                      <a href='//garafu.blogspot.com/p/blog-page.html'>
+                        <i class='fa fa-list fa-fw'/>
+                        <span>記事一覧</span>
+                      </a>
+                    </li>
+                    <li class='nav-item'>
+                      <a href='//garafu.blogspot.com/p/product.html'>
+                        <i class='fa fa-cubes fa-fw'/>
+                        <span>製品一覧</span>
+                      </a>
+                    </li>
+                    <li class='nav-item'>
+                      <a href='//garafu.blogspot.com/p/about.html'>
+                        <i class='fa fa-user fa-fw'/>
+                        <span>プロフィール</span>
+                      </a>
+                    </li>
+                  </ul>
+                  <ul class='nav nav-pills nav-stacked footer-page-list'>
+                    <li class='nav-item'>
+                      <a href='//www.facebook.com/galifeblog' target='_blank'>
+                        <i class='fa fa-facebook fa-fw'/>
+                        <span>
+                          Facebook ページ <i class='fa fa-external-link'/>
+                        </span>
+                      </a>
+                    </li>
+                    <li class='nav-item'>
+                      <a href='//twitter.com/galifeblog' target='_blank'>
+                        <i class='fa fa-twitter fa-fw'/>
+                        <span>
+                          twitter <i class='fa fa-external-link'/>
+                        </span>
+                      </a>
+                    </li>
+                    <li class='nav-item'>
+                      <a href='//github.com/garafu' target='_blank'>
+                        <i class='fa fa-github fa-fw'/>
+                        <span>
+                          Github / garafu <i class='fa fa-external-link'/>
+                        </span>
+                      </a>
+                    </li>
+                  </ul>
+                </b:includable>
+              </b:widget>
+              <b:widget id='ContactForm1' locked='false' title='Contact' type='ContactForm' version='1' visible='true'>
+                <b:includable id='main'>
+                  <h2 class='page-header'><data:title/></h2>
+                  <form>
+                    <div class='form-group'>
+                      <label expr:for='data:widget.instanceId + "_contact-form-name"'>
+                        <data:contactFormNameMsg/>
+                      </label>
+                      <input class='form-control' expr:id='data:widget.instanceId + "_contact-form-name"' name='name' size='30' type='text' value=''/>
+                    </div>
+                    <div class='form-group'>
+                      <label expr:for='data:widget.instanceId + "_contact-form-email"'>
+                        <data:contactFormEmailMsg/>
+                        <span style='font-weight: bolder;'>*</span>
+                      </label>
+                      <input class='form-control' expr:id='data:widget.instanceId + "_contact-form-email"' name='email' size='30' type='text' value=''/>
+                    </div>
+                    <div class='form-group'>
+                      <label expr:for='data:widget.instanceId + "_contact-form-email-message"'>
+                        <data:contactFormMessageMsg/>
+                        <span style='font-weight: bolder;'>*</span>
+                      </label>
+                      <textarea class='form-control' expr:id='data:widget.instanceId + "_contact-form-email-message"' name='email-message' rows='5'/>
+                    </div>
+                    <input expr:id='data:widget.instanceId + "_contact-form-submit"' expr:value='data:contactFormSendMsg' type='button' class='btn btn-default' /> 
+                    <div style='text-align: center; max-width: 222px; width: 100%'>
+                      <p class='contact-form-error-message' expr:id='data:widget.instanceId + "_contact-form-error-message"'/>
+                      <p class='contact-form-success-message' expr:id='data:widget.instanceId + "_contact-form-success-message"'/>
+                    </div>
+                  </form>
+                </b:includable>
+              </b:widget>
+            </b:section>
+          </div>
+        </div>
+      </div>
+
+    </div>
+<!-- ▲ footer section ▲ -->
+    <div class='footer-bottom'>
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-lg-12">
+            <p class='text-center'>
+              &#169; 2012
+              <a href='//garafu.blogspot.jp/'>galife</a>
+              . Powered by
+              <a href='//www.blogger.com/' rel='nofollow' title='Blogger'>Blogger</a>
+              .
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   </footer>
-<!-- ▲ footer section ▲ -->
-<!-- script -->
+<!-- ▼ script area ▼ -->
   <script src='//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
   <script src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
   <script>
@@ -932,6 +1228,6 @@ var BLOG_PAGE_TYPE = '<data:blog.pageType />';
     });
 })();
   </script>
-<!-- script -->
+<!-- ▲ script area ▲ -->
 </body>
 </html>
