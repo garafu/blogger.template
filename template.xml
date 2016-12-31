@@ -1056,7 +1056,9 @@ h2.page-header {
       </div>
     </b:includable>
     <b:includable id='static' var='top'>
-      <h1>static_page</h1>
+      <b:loop var='post' values='data:posts'>
+        <b:include name='static-post' data='post' />
+      </b:loop>
     </b:includable>
     <b:includable id='index-post' var='post'>
       <article class='index-post-item hentry'>
@@ -1143,6 +1145,18 @@ h2.page-header {
           <b:include name='threaded_comments' data='post' />
         </div>
       </section>
+    </b:includable>
+    <b:includable id='static-post' var='post'>
+      <article class='static-post'>
+        <header class='static-post-header'>
+          <h1 class='page-header'>
+            <data:post.title />
+          </h1>
+        </header>
+        <div class='static-page-body post-body'>
+          <data:post.body />
+        </div>
+      </article>
     </b:includable>
     <b:includable id='item-post-sharebutton' var='post'>
       <div style='table-layout:fixed;'>
