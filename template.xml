@@ -376,6 +376,10 @@ kbd {
   height: 100%;
 }
 
+.index-message {
+  margin-top: 50px;
+}
+
 .index-post-item {
   background: #fff;
   margin: 0 0 20px;
@@ -932,61 +936,61 @@ h2.page-header {
   <header class='navbar navbar-default navbar-fixed-top navbar-inverse' id='navbar' role='navigation'>
     <div class='container navbar-container'>
 <!-- ▼ header section ▼ -->
-<b:section class='header' id='header' maxwidgets='1' showaddelement='no'>
-  <b:widget id='Header1' locked='true' title='' type='Header'>
-    <!-- header section -main- -->
-    <b:includable id='main' var='top'>
-      <div class='navbar-header'>
-        <button class='btn btn-outline-default navbar-btn visible-xs header-btn-toggle-menu' id='btnNavbarToggleMenu'>
-          <i class='fa fa-bars' aria-hidden='true'></i>
-        </button>
-        <a href='/' class='navbar-brand'>
-          <h1><data:blog.title /></h1>
-        </a>
-      </div>
-
-      <div class='navbar-menu' id='navbar-menu'>
-        <ul class='nav navbar-nav' id='navbar-menu-list'>
-          <li class='nav-item'><a href=''>記事一覧</a></li>
-          <li class='nav-item dropdown'>
-            <a class='dropdown-toggle' id='navbar-menu-dropdown-sp' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>特集記事<span class='caret'></span></a>
-            <ul class='dropdown-menu' aria-labelledby='navbar-menu-dropdown-sp'>
-              <li class='dropdown-item'><a class='nav-item' href='#'>Webアプリケーション開発</a></li>
-            </ul>
-          </li>
-          <li class='nav-item'><a href=''>製品一覧</a></li>
-          <li class='nav-item'><a href=''>このブログについて</a></li>
-        </ul>
-
-        <div class='nav navbar-nav navbar-right visible-sm header-btn-toggle-search'>
-          <a class='btn btn-outline-default navbar-btn' id='btnNavbarToggleSearch'>
-            <i class='fa fa-search' aria-hidden='true'></i>
-          </a>
-        </div>
-
-        <form action='/search' class='nav navbar-nav navbar-form navbar-right' method='get' role='search' id='frmNavbarSearch'>
-          <div class='form-group navbar-form-group'>
-            <div class='input-group'>
-              <input type='text' class='form-control' placeholder='ブログ内を検索' />
-              <div class='input-group-btn'>
-                <button class='btn btn-default' type='submit'>
-                  <i class='fa fa-search' aria-hidden='true'></i>
-                </button>
-              </div>
+      <b:section class='header' id='header' maxwidgets='1' showaddelement='no'>
+        <b:widget id='Header1' locked='true' title='' type='Header'>
+          <!-- header section -main- -->
+          <b:includable id='main' var='top'>
+            <div class='navbar-header'>
+              <button class='btn btn-outline-default navbar-btn visible-xs header-btn-toggle-menu' id='btnNavbarToggleMenu'>
+                <i class='fa fa-bars' aria-hidden='true'></i>
+              </button>
+              <a href='/' class='navbar-brand'>
+                <h1><data:blog.title /></h1>
+              </a>
             </div>
-          </div>
-        </form>
-      </div>
-    </b:includable>
-    <!-- header section -main- -->
-  </b:widget>
-</b:section>
+
+            <div class='navbar-menu' id='navbar-menu'>
+              <ul class='nav navbar-nav' id='navbar-menu-list'>
+                <li class='nav-item'><a href=''>記事一覧</a></li>
+                <li class='nav-item dropdown'>
+                  <a class='dropdown-toggle' id='navbar-menu-dropdown-sp' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>特集記事<span class='caret'></span></a>
+                  <ul class='dropdown-menu' aria-labelledby='navbar-menu-dropdown-sp'>
+                    <li class='dropdown-item'><a class='nav-item' href='#'>Webアプリケーション開発</a></li>
+                  </ul>
+                </li>
+                <li class='nav-item'><a href=''>製品一覧</a></li>
+                <li class='nav-item'><a href=''>このブログについて</a></li>
+              </ul>
+
+              <div class='nav navbar-nav navbar-right visible-sm header-btn-toggle-search'>
+                <a class='btn btn-outline-default navbar-btn' id='btnNavbarToggleSearch'>
+                  <i class='fa fa-search' aria-hidden='true'></i>
+                </a>
+              </div>
+
+              <form action='/search' class='nav navbar-nav navbar-form navbar-right' method='get' role='search' id='frmNavbarSearch'>
+                <div class='form-group navbar-form-group'>
+                  <div class='input-group'>
+                    <input id='s' name='q' type='text' class='form-control' placeholder='ブログ内を検索' />
+                    <div class='input-group-btn'>
+                      <button class='btn btn-default' type='submit'>
+                        <i class='fa fa-search' aria-hidden='true'></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </b:includable>
+          <!-- header section -main- -->
+        </b:widget>
+      </b:section>
 <!-- ▲ header section ▲ -->
     </div>
   </header>
 
 <!-- ▼ jumbotron section ▼ -->
-<b:if cond='data:blog.pageType == "index"'>
+<b:if cond='data:blog.pageType == "index" and !data:blog.searchLabel and !data:blog.searchQuery'>
   <section class='jumbotron'>
     <div class='bg-container'>
       <div class='bg-image'></div>
@@ -1004,7 +1008,7 @@ h2.page-header {
 </b:if>
 <!-- ▲ jumbotron section ▲ -->
 
-  <div class='container'>
+  <div class='container main-container'>
     <div class='row'>
 <!-- ▼ main section ▼ -->
       <section class='col-xs-12 col-sm-12 col-lg-8'>
@@ -1025,6 +1029,9 @@ h2.page-header {
       </b:if>
     </b:includable>
     <b:includable id='index' var='top'>
+      <div class='index-message'>
+        <b:include name='status-message' />
+      </div>
       <div class='index-post-list'>
         <b:loop var='post' values='data:posts'>
           <b:include name='index-post' data='post' />
@@ -1059,6 +1066,15 @@ h2.page-header {
       <b:loop var='post' values='data:posts'>
         <b:include name='static-post' data='post' />
       </b:loop>
+    </b:includable>
+    <b:includable id='status-message'>
+      <b:if cond='data:navMessage'>
+        <div class='panel panel-default status-message-block'>
+          <div class='panel-body status-message-body'>
+            <data:navMessage/>
+          </div>
+        </div>
+      </b:if>
     </b:includable>
     <b:includable id='index-post' var='post'>
       <article class='index-post-item hentry'>
