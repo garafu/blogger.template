@@ -1501,7 +1501,9 @@ h2.page-header {
         </ul>
 
         <div class='comments-content'>
-          <b:include cond='data:post.embedCommentForm' data='post' name='threaded_comment_js'/>
+          <b:if cond='data:post.showThreadedComments'>
+            <b:include cond='data:post.embedCommentForm' data='post' name='threaded_comment_js'/>
+          </b:if>
           <div id='comment-holder'>
             <data:post.commentHtml/>
           </div>
@@ -2083,7 +2085,7 @@ var BLOG_PAGE_TYPE = '<data:blog.pageType />';
     garafu.itm.initRelatedPosts = function () {
 //<![CDATA[
 var RELATEDPOSTS_SETTINGS = {
-  BlogURL: window.location.hostname,
+  BlogUrl: window.location.hostname,
   MaxResults: 5,
   TitleVisible: true,
   ThumbnailVisible: true,
