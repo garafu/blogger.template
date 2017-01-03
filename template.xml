@@ -321,7 +321,48 @@ kbd {
 /*---------------------------------------------------
     共通サイドメニュー
 ---------------------------------------------------*/
-/* popular posts */
+
+/* related posts
+--------------------------*/
+.RelatedPosts {
+}
+
+.RelatedPosts i {
+  text-align: center;
+}
+
+.RelatedPosts ul {
+  list-style-type: none;
+  margin: 0 !important;
+  padding: 0;
+}
+
+.RelatedPosts .item-content {
+  margin-top: 2px;
+}
+
+.RelatedPosts .item-content>a {
+  padding: 10px 15px;
+  border-radius: 4px;
+  text-decoration: none;
+  display: block;
+}
+
+.RelatedPosts .item-content>a:hover {
+  background-color: #eee;
+}
+
+.RelatedPosts .item-thumbnail {
+  float: left;
+  margin: 0 5px 5px 0;
+}
+
+.RelatedPosts img {
+  padding: 3px;
+}
+
+/* popular posts
+--------------------------*/
 
 .PopularPosts .item-content {
   background: #fff;
@@ -335,7 +376,6 @@ kbd {
   float: left;
   margin: 0 5px 5px 0;
 }
-
 
 /*---------------------------------------------------
     トップページ (index-xxx)
@@ -880,51 +920,7 @@ h4.strong {
   display: block;
 }
 
-/* related posts
---------------------------*/
-.RelatedPosts {
-  margin: 5em 0;
-}
 
-/*.RelatedPosts h2 {
-  padding: 10px;
-  color: #222222;
-  font-family: 'Open Sans',sans-serif;
-  font-size: 16px;
-  font-weight: bold;
-  line-height: 1.2em;
-  margin-bottom: 6px;
-  text-transform: uppercase;
-  border-bottom: 1px solid #D3D3D3;
-  margin-top: 5px;
-}*/
-
-.RelatedPosts ul {
-  list-style-type: none;
-  margin: 0 !important;
-  padding: 0;
-}
-
-.RelatedPosts .item-content {
-  /*border: 1px solid #ddd;*/
-  padding: 10px;
-  margin-bottom: 10px;
-  /*-webkit-box-shadow: 1px 1px 2px 0 #d0d0d0;
-  -moz-box-shadow: 1px 1px 2px 0 #d0d0d0;
-  box-shadow: 1px 1px 2px 0 #d0d0d0;*/
-  /*border-radius: 4px;*/
-  min-height: 92px;
-}
-
-.RelatedPosts .item-thumbnail {
-  float: left;
-  margin: 0 5px 5px 0;
-}
-
-.RelatedPosts img {
-  border-radius: 10px;
-  padding: 3px;
-}
 
 h2.page-header {
   font-size: 24px;
@@ -1174,9 +1170,9 @@ h2.page-header {
         </div>
       </article>
       <section>
-        <div class='item-post-releatedposts'>
+        <!--<div class='item-post-releatedposts'>
           <b:include name='related-post' data='post' />
-        </div>
+        </div>-->
         <div class='item-post-pager'>
           <b:include name='item-post-nextprev' data='post' />
         </div>
@@ -1278,7 +1274,7 @@ h2.page-header {
     <b:includable id='related-post' var='post'>
       <div class='RelatedPosts'>
         <h4 class='page-header'>関連記事</h4>
-        <div id='blogger.relatedposts.output'/>
+        <div id='blogger.relatedposts.output'></div>
       </div>
     </b:includable>
     <b:includable id='threaded-comment-form' var='post'>
@@ -1573,6 +1569,12 @@ h2.page-header {
             <li class="nav-item"><a href="//garafu.blogspot.com/p/web-application-development.html">Webアプリケーション開発</a></li>
           </ul>
         </div>
+        <b:if cond='data:blog.pageType == "item"'>
+          <div class="widget RelatedPosts">
+            <h2 class='page-header'>Related Posts</h2>
+            <div id='blogger.relatedposts.output'></div>
+          </div>
+        </b:if>
       </aside>
       <aside class="col-xs-12 col-sm-6 col-lg-4">
         <b:section class='sidebar' id='sidebar' maxwidgets='' showaddelement='yes'>
@@ -1963,7 +1965,7 @@ var BLOG_PAGE_TYPE = '<data:blog.pageType />';
         }
 
         this.initSocialButtons();
-        //this.initRelatedPosts();
+        this.initRelatedPosts();
     };
 
     garafu.itm.initSocialButtons = function () {
@@ -2085,19 +2087,16 @@ var BLOG_PAGE_TYPE = '<data:blog.pageType />';
     garafu.itm.initRelatedPosts = function () {
 //<![CDATA[
 var RELATEDPOSTS_SETTINGS = {
-  BlogUrl: window.location.hostname,
   MaxResults: 5,
-  TitleVisible: true,
-  ThumbnailVisible: true,
-  SnippetVisible: true
+  LoadingMessage: '<div style="text-align:center;"><i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i></div>'
 };
-(function(){var d=null,p=[],q=0,r=0;function s(){output=document.getElementById(d.OutputElementId);output.appendChild(document.createTextNode(d.NoRelatedPostsMessage))}
-function u(a){if(200===a.status.code&&(a=a.feed.entries||[],p=p.concat(a),r+=1,!(r<q))){a=p;var g,b,l,m,e,h,v=document.location.href;m=d.MaxResults;l=a.length<m?a.length:m;if(0===l)s();else{m=document.createElement("ul");for(b=0;b<l;b++){g=Math.floor(a.length*Math.random());if(v!==a[g].link){e=a[g];h=d;var n=void 0,f=void 0,c=f=void 0,k=c=void 0,t=void 0,n=document.createElement("div");n.className="item-content";h.ThumbnailVisible&&(t=(k=(e.content||"").match(/<img.*?src=['"](.*?)["'].*?>/))&&k[1]||
-h.NoThumbnailImageUrl)&&(f=document.createElement("div"),f.className="item-thumbnail",c=document.createElement("a"),c.href=e.link,k=document.createElement("img"),k.style.width="72px",k.style.height="72px",k.src=t,c.appendChild(k),f.appendChild(c),n.appendChild(f));h.TitleVisible&&(f=document.createElement("div"),f.className="item-title",c=document.createElement("a"),c.href=e.link,c.appendChild(document.createTextNode(e.title)),f.appendChild(c),n.appendChild(f));h.SnippetVisible&&(c=document.createElement("div"),
-c.className="item-snippet",c.innerHTML=e.contentSnippet,n.appendChild(c));h=n;e=document.createElement("li");e.appendChild(h);m.appendChild(e)}else b-=1;a.splice(g,1)}a=document.getElementById(d.OutputElementId);a.appendChild(m)}}}google.load("feeds","1");
-google.setOnLoadCallback(function(){var a;a=RELATEDPOSTS_SETTINGS||{};d={BlogUrl:a.BlogUrl||"garafu.blogspot.com",MaxResults:a.MaxResults||5,TitleVisible:"boolean"===typeof a.TitleVisible?a.TitleVisible:!0,ThumbnailVisible:"boolean"===typeof a.ThumbnailVisible?a.ThumbnailVisible:!0,SnippetVisible:"boolean"===typeof a.SnippetVisible?a.SnippetVisible:!0,NoThumbnailImageUrl:"undefined"!==typeof a.NoThumbnailImageUrl?a.NoThumbnailImageUrl:"//4.bp.blogspot.com/-9mCCaXTpn9I/VN4hDMsFXlI/AAAAAAAAC6U/i84N2Ng37Ik/s1600/noimage.png",
-NoRelatedPostsMessage:"undefined"!==typeof a.NoRelatedPostsMessage?a.NoRelatedPostsMessage:"No Related Posts...",LabelElementId:a.LabelElementId||"blogger.relatedposts.label",OutputElementId:a.OutputElementId||"blogger.relatedposts.output"};a=document.getElementById(d.LabelElementId).innerText.split(",");q=a.length;var g,b,l;if(0===a.length)s();else for(l=Math.ceil(1.2*d.MaxResults),g=a.length;g--;)b="//"+d.BlogUrl+"/",b+="feeds/posts/default/-/",b+=encodeURIComponent((a[g]||"").replace(/^\s*/,
-"").replace(/\s*$/,"")),b=new google.feeds.Feed(b),b.setResultFormat(google.feeds.Feed.JSON_FORMAT),b.setNumEntries(l),b.load(u)});})();
+(function(){function h(b,a,c){var e;h=e=window.addEventListener?function(a,b,c){a.addEventListener(b,c,!1)}:window.attachEvent?function(a,b,c){a.attachEvent("on"+b,c)}:function(a,b,c){a["on"+b]=c};e(b,a,c)};function k(){p(this,this,RELATEDPOSTS_SETTINGS,{BlogUrl:window.location.hostname,MaxResults:5,TitleVisible:!0,ThumbnailVisible:!0,SnippetVisible:!0,SnippetMaxLength:120,NoThumbnailImageUrl:"//4.bp.blogspot.com/-9mCCaXTpn9I/VN4hDMsFXlI/AAAAAAAAC6U/i84N2Ng37Ik/s1600/noimage.png",LoadingMessage:"Loading ...",NoRelatedPostsMessage:"No Related Posts.",LabelElementId:"blogger.relatedposts.label",OutputElementId:"blogger.relatedposts.output"})}
+function p(b,a,c,e){var d;c=c||{};for(d in e)"object"!==typeof e[d]||e[d]instanceof Array?a[d]=void 0!==c[d]?c[d]:e[d]:(a[d]=a[d]||{},p(b,a[d],c[d],e[d]))};function q(){var b,a,c;b=t=new k;a=document.getElementById(b.LabelElementId);c=a.innerText.split(",");u=c.length;a=document.getElementById(b.OutputElementId);a.innerHTML=b.LoadingMessage;if(0===c.length)this.a();else for(b=c.length;b--;)a="",a+="//"+t.BlogUrl+"/",a+="feeds/posts/default/-/",a+=encodeURIComponent((c[b]||"").replace(/^\s*/,"").replace(/\s*$/,"")),a+="?",a+="alt=json&",a+="callback=",a+="garafu.blogger.relatedposts.Main.onloading",script=document.createElement("script"),script.src=a,
+script.type="text/javascript",document.body.appendChild(script)}var t=null,v=[],u=0,x=0,y=null;function z(){var b=y;b||(y=b=new q)}function A(b){var a=t.SnippetMaxLength,c="";b=b.replace(/\x3c!--[\s\S]*--\x3e/g,"");b=b.replace(/<style[\s\S="']*>[\s\S]*<\/style>/g,"");b=b.replace(/<("[^"]*"|'[^']*'|[^'">])*>/g,"");b.length<a+4?c=b:(c+=b.substring(0,a-4),c+=" ...");return c}h(window,"load",function(){z()});
+function B(b){z();entries=b.feed.entry||[];v=v.concat(entries);x+=1;if(x>=u){var a=v;b=document.getElementById(t.OutputElementId);for(var c;c=b.firstChild;)b.removeChild(c);if(0!==a.length){var e,d,w,s,g,l;c=document.location.href;e=t.MaxResults;w=a.length<e?a.length:e;s=document.createElement("ul");for(d=0;d<w;d++){e=Math.floor(a.length*Math.random());if(c!==a[e].link){g=a[e];l=t;var r=void 0,f=void 0,n=f=void 0,m=f=void 0,C=void 0,r=document.createElement("div");r.className="item-content";n=document.createElement("a");
+n.href=/https?:(\/\/[\w\-\.~#\$&\+\/:=\?%]+)/.exec(g.link[g.link.length-1].href)[1];r.appendChild(n);l.ThumbnailVisible&&(C=(m=(g.content.$t||"").match(/<img.*?src=['"](.*?)["'].*?>/))&&m[1]||l.NoThumbnailImageUrl)&&(f=document.createElement("div"),f.className="item-thumbnail",m=document.createElement("img"),m.style.width="72px",m.style.height="72px",m.src=C,f.appendChild(m),n.appendChild(f));l.TitleVisible&&(f=document.createElement("div"),f.className="item-title",f.appendChild(document.createTextNode(g.title.$t)),
+n.appendChild(f));l.SnippetVisible&&(f=document.createElement("div"),f.className="item-snippet",f.appendChild(document.createTextNode(A(g.content.$t||""))),n.appendChild(f));l=r;g=document.createElement("li");g.appendChild(l);s.appendChild(g)}else d-=1;a.splice(e,1)}a=s}else a=document.createTextNode(t.NoRelatedPostsMessage);b.appendChild(a)}}var D=["garafu","blogger","relatedposts","Main","onloading"],E=this;D[0]in E||!E.execScript||E.execScript("var "+D[0]);
+for(var F;D.length&&(F=D.shift());)D.length||void 0===B?E=E[F]?E[F]:E[F]={}:E[F]=B;})();
 //]]>
     }
 
