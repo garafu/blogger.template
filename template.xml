@@ -1883,7 +1883,7 @@ h2.page-header {
           <div class="col-xs-12 col-sm-12 col-lg-12">
             <p class='text-center' id='publisher' itemscope='itemscope' itemtype='https://schema.org/Organization' itemprop='publisher'>
               <span class='logo' itemscope='itemscope' itemtype='https://schema.org/ImageObject' itemprop='logo'>
-                <img src='//2.bp.blogspot.com/-mgcjXaecxgs/WGuqw_26OiI/AAAAAAAADuc/30OVfqaP-OoDqhMb3PnO6-dfn8jD5ZJNACLcB/s1600/favicon.png' class='img-thumbnail' style='display:none;' itemprop='url'/>
+                <img src='//2.bp.blogspot.com/-mgcjXaecxgs/WGuqw_26OiI/AAAAAAAADuc/30OVfqaP-OoDqhMb3PnO6-dfn8jD5ZJNACLcB/s1600/favicon.png' class='img-thumbnail' itemprop='url'/>
               </span>
               &#169; 2012
               <span itemprop='name'>
