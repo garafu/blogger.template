@@ -486,6 +486,7 @@ kbd {
 
 .post-author, .post-timestamp, .post-labels, .post-comments {
   margin-right: 1em;
+  display: inline-block;
 }
 
 /*---------------------------------------------------
@@ -591,6 +592,27 @@ kbd {
 }
 .pocket-share-button:hover {
   background-color: #ba3244;
+}
+
+/* For mobile CSS (tablet size) */
+@media (min-width: 380px) and (max-width: 768px) {
+  .socialbutton{
+    width: 90px;
+  }
+}
+
+/* For mobile CSS (smartphone size) */
+@media (max-width: 380px) {
+  .socialbutton{
+    width: 50px;
+    margin: 2px;
+  }
+  .socialbutton-icon {
+    margin: 5px 0;
+  }
+  .socialbutton-name {
+    display: none;
+  }
 }
 
 /* comments styles
@@ -935,8 +957,6 @@ h4.strong {
   cursor: pointer;
   display: block;
 }
-
-
 
 h2.page-header {
   font-size: 24px;
