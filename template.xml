@@ -1627,7 +1627,7 @@ h2.page-header {
     </div>
   </div>
 
-  <footer class='footer'>
+  <footer class='footer' id='footer'>
 <!-- ▼ footer section ▼ -->
     <div class='footer-top'>
       <div class='container'>
@@ -1856,6 +1856,7 @@ h2.page-header {
       </div>
     </div>
   </footer>
+  <i id='btn-top' class='fa fa-arrow-up btn-top' aria-hidden='true' style='display:none;'></i>
 <!-- ▼ script area ▼ -->
   <script src='//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js' type='text/javascript'></script>
   <script src='//www.google.com/jsapi' type='text/javascript'/>
@@ -2068,19 +2069,55 @@ for(var F;D.length&&(F=D.shift());)D.length||void 0===B?E=E[F]?E[F]:E[F]={}:E[F]
     garafu.lib.init = function () {
         switch (BLOG_PAGE_TYPE) {
             case 'index':
+                this.initButtonTop();
                 this.initPostList();
                 break;
             case 'archive':
+                this.initButtonTop();
                 this.initPostList();
                 break;
             case 'item':
+                this.initButtonTop();
                 this.initSyntaxHighlighter();
                 break;
             case 'static_page':
+                this.initButtonTop();
                 this.initSyntaxHighlighter();
                 break;
             default:
         }
+    };
+
+    garafu.lib.initButtonTop = function () {
+        var $navbar = $(document.getElementById('navbar'));
+        var $btntop = $(document.getElementById('btn-top'));
+        var $footer = $(document.getElementById('footer'));
+        var defaultNavbarTop = $navbar.offset().top;
+        var isDisplayed = false;
+
+        var btntop_onclick = function (event) {
+            $('html,body').animate({ scrollTop: 0 });
+        };
+
+        var window_onscroll = function (event) {
+            var top = $(window).scrollTop();
+            var navbarTop = 0; //$navbar.offset().top;
+            var navbarHeight = $navbar.height();
+            var footerTop = $footer.offset().top;
+
+            if (top >= navbarTop + navbarHeight) {
+                if (isDisplayed === false) {
+                    $btntop.fadeIn();
+                    isDisplayed = true;
+                }
+            } else {
+                $btntop.fadeOut();
+                isDisplayed = false;
+            }
+        };
+
+        $(window).on('scroll', window_onscroll);
+        $(document.getElementById('btn-top')).on('click', btntop_onclick);
     };
 
     garafu.lib.initPostList = function () {
@@ -2089,7 +2126,7 @@ for(var F;D.length&&(F=D.shift());)D.length||void 0===B?E=E[F]?E[F]:E[F]={}:E[F]
             item = SUMMARY_TARGET_LIST[i];
             this.createSummaryAndThumbnail(item.id, item.url, item.title);
         }
-    }
+    };
 
     garafu.lib.createSummaryAndThumbnail = function (id, url, title) {
         var NO_IMAGE_SRC = '//4.bp.blogspot.com/-9mCCaXTpn9I/VN4hDMsFXlI/AAAAAAAAC6U/i84N2Ng37Ik/s1600/noimage.png';
