@@ -319,6 +319,18 @@ kbd {
   color: #dddddd;
 }
 
+.footer-bottom .logo {
+  display: inline-block;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.footer-bottom .logo>img {
+  width: 23px;
+  height: 23px;
+  padding: 1px;
+}
+
 /*---------------------------------------------------
     共通サイドメニュー
 ---------------------------------------------------*/
@@ -941,9 +953,12 @@ h2.page-header {
 
   </script>
 </head>
-<body>
+<body itemscope='itemscope' itemtype='https://schema.org/Blog'>
 
-  <header class='navbar navbar-default navbar-fixed-top navbar-inverse' id='navbar' role='navigation'>
+  <meta expr:content='data:blog.title' itemprop='name' />
+  <meta content='garafu' itemprop='author' />
+
+  <header class='navbar navbar-default navbar-fixed-top navbar-inverse' id='navbar' role='navigation' itemscope='itemscope' itemtype='https://schema.org/SiteNavigationElement'>
     <div class='container navbar-container'>
 <!-- ▼ header section ▼ -->
       <b:section class='header' id='header' maxwidgets='1' showaddelement='no'>
@@ -961,15 +976,23 @@ h2.page-header {
 
             <div class='navbar-menu' id='navbar-menu'>
               <ul class='nav navbar-nav' id='navbar-menu-list'>
-                <li class='nav-item'><a href='//garafu.blogspot.com/p/blog-page.html'>記事一覧</a></li>
-                <li class='nav-item dropdown'>
+                <li class='nav-item' itemprop='name'>
+                  <a href='//garafu.blogspot.com/p/blog-page.html' itemprop='url'>記事一覧</a>
+                </li>
+                <li class='nav-item dropdown' itemprop='name'>
                   <a class='dropdown-toggle' id='navbar-menu-dropdown-sp' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>特集記事<span class='caret'></span></a>
-                  <ul class='dropdown-menu' aria-labelledby='navbar-menu-dropdown-sp'>
-                    <li class='dropdown-item'><a class='nav-item' href='//garafu.blogspot.com/p/web-application-development.html'>Webアプリケーション開発</a></li>
+                  <ul class='dropdown-menu' aria-labelledby='navbar-menu-dropdown-sp' itemscope='itemscope' itemtype='https://schema.org/SiteNavigationElement'>
+                    <li class='dropdown-item' itemprop='name'>
+                      <a class='nav-item' href='//garafu.blogspot.com/p/web-application-development.html' itemprop='url'>Webアプリケーション開発</a>
+                    </li>
                   </ul>
                 </li>
-                <li class='nav-item'><a href='//garafu.blogspot.com/p/product.html'>製品一覧</a></li>
-                <li class='nav-item'><a href='//garafu.blogspot.com/p/about.html'>このブログについて</a></li>
+                <li class='nav-item' itemprop='name'>
+                  <a href='//garafu.blogspot.com/p/product.html' itemprop='url'>製品一覧</a>
+                </li>
+                <li class='nav-item' itemprop='name'>
+                  <a href='//garafu.blogspot.com/p/about.html' itemprop='url'>このブログについて</a>
+                </li>
               </ul>
 
               <div class='nav navbar-nav navbar-right visible-sm header-btn-toggle-search'>
@@ -1157,13 +1180,22 @@ h2.page-header {
       </article>
     </b:includable>
     <b:includable id='item-post' var='post'>
-      <article class='item-post'>
+      <article class='item-post' itemscope='itemscope' itemtype='https://schema.org/BlogPosting' itemref='publisher'>
+        <b:if cond='data:post.firstImageUrl'>
+          <link expr:href='data:post.firstImageUrl' itemprop='image'/>
+        <b:else />
+          <link href='//4.bp.blogspot.com/-9mCCaXTpn9I/VN4hDMsFXlI/AAAAAAAAC6U/i84N2Ng37Ik/s1600/noimage.png' itemprop='image' />
+        </b:if>
+        <meta expr:content='data:blog.homepageUrl' itemprop='mainEntityOfPage'/>
+        <meta expr:content='data:post.title' itemprop='headline'/>
+        <link expr:href='data:post.url' itemprop='url'/>
+        <meta expr:content='data:post.timestampISO8601' itemprop='datePublished dateModified'/>
         <header class='item-post-header'>
           <div class='item-post-title'>
-            <h1 class='page-header'><data:post.title /></h1>
+            <h1 class='page-header' itemprop='name'><data:post.title /></h1>
           </div>
           <div class='item-post-attr'>
-            <span class='post-author vcard'>
+            <span class='post-author vcard' itemprop='author'>
               <i class='fa fa-user'></i>
               <span class='fn'><data:post.author /></span>
             </span>
@@ -1174,13 +1206,13 @@ h2.page-header {
                 <data:post.timestamp />
               </abbr>
             </span>
-            <span id='blogger.relatedposts.label' class='post-labels'>
+            <span id='blogger.relatedposts.label' class='post-labels' itemprop='keywords'>
               <i class='fa fa-tags'></i>
               <b:loop var='label' values='data:post.labels'>
                 <a expr:href='data:label.url' rel='tag'><data:label.name/></a><b:if cond='data:label.isLast != "true"'>,</b:if>
               </b:loop>
             </span>
-            <span class='post-comments'>
+            <span class='post-comments' itemprop='commentCount'>
               <i class='fa fa-comment-o'></i>
               <a class='comment-link' expr:href='data:post.addCommentUrl' expr:onclick='data:post.addCommentOnclick'>
                 <data:post.commentLabelFull/>
@@ -1191,21 +1223,16 @@ h2.page-header {
             <b:include name='item-post-sharebutton' data='post' />
           </div>
         </header>
-        <div class='item-post-body post-body'>
+        <div class='item-post-body post-body' itemprop='articleBody'>
           <data:post.body />
         </div>
-      </article>
-      <section>
-        <!--<div class='item-post-releatedposts'>
-          <b:include name='related-post' data='post' />
-        </div>-->
-        <div class='item-post-pager'>
+        <div class='item-post-pager' itemprop='pagination'>
           <b:include name='item-post-nextprev' data='post' />
         </div>
-        <div class='item-post-comments'>
+        <div class='item-post-comments' itemprop='comment'>
           <b:include name='threaded_comments' data='post' />
         </div>
-      </section>
+      </article>
     </b:includable>
     <b:includable id='static-post' var='post'>
       <article class='static-post'>
@@ -1854,9 +1881,14 @@ h2.page-header {
       <div class="container">
         <div class="row">
           <div class="col-xs-12 col-sm-12 col-lg-12">
-            <p class='text-center'>
+            <p class='text-center' id='publisher' itemscope='itemscope' itemtype='https://schema.org/Organization' itemprop='publisher'>
+              <span class='logo' itemscope='itemscope' itemtype='https://schema.org/ImageObject' itemprop='logo'>
+                <img src='//2.bp.blogspot.com/-mgcjXaecxgs/WGuqw_26OiI/AAAAAAAADuc/30OVfqaP-OoDqhMb3PnO6-dfn8jD5ZJNACLcB/s1600/favicon.png' class='img-thumbnail' style='display:none;' itemprop='url'/>
+              </span>
               &#169; 2012
-              <a href='//garafu.blogspot.com/'>galife</a>
+              <span itemprop='name'>
+                <a href='//garafu.blogspot.com/' itemprop='url'>galife</a>
+              </span>
               . Powered by
               <a href='//www.blogger.com/' rel='nofollow' title='Blogger'>Blogger</a>
               .
@@ -1866,7 +1898,9 @@ h2.page-header {
       </div>
     </div>
   </footer>
+
   <i id='btn-top' class='fa fa-arrow-up btn-top' aria-hidden='true' style='display:none;'></i>
+
 <!-- ▼ script area ▼ -->
   <script src='//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js' type='text/javascript'></script>
   <script src='//www.google.com/jsapi' type='text/javascript'/>
