@@ -653,6 +653,9 @@ iframe.avatar-hovercard-iframe {
   margin-top: 10px;
   margin-bottom: 0
 }
+.comments ul.nav>li>a>h4 {
+  margin: 0;
+}
 .comments .comments-content {
   margin-bottom: 16px
 }
