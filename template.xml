@@ -1032,7 +1032,7 @@ h2.page-header {
       <div class='index-message'>
         <b:include name='status-message' />
       </div>
-      <div class='index-post-list'>
+      <div class='index-post-list index'>
         <b:loop var='post' values='data:posts'>
           <b:include name='index-post' data='post' />
         </b:loop>
@@ -1054,7 +1054,19 @@ h2.page-header {
       </nav>
     </b:includable>
     <b:includable id='archive' var='top'>
-      <h1>archive</h1>
+      <h1 class='page-header'>
+        <data:blog.pageName/>年
+      </h1>
+      <div class='index-post-list archive'>
+        <b:loop var='post' values='data:posts'>
+          <b:include name='index-post' data='post' />
+        </b:loop>
+      </div>
+<!--
+      <nav class='text-center' id='blog-pager'>
+        <b:include name='index-pagenation' />
+      </nav>
+-->
     </b:includable>
     <b:includable id='item' var='top'>
       <b:loop var='post' values='data:posts'>
@@ -1904,60 +1916,6 @@ var BLOG_PAGE_TYPE = '<data:blog.pageType />';
         if (BLOG_PAGE_TYPE != 'index') {
             return;
         }
-
-        for (i = SUMMARY_TARGET_LIST.length; i--;) {
-            item = SUMMARY_TARGET_LIST[i];
-            garafu.idx.createSummaryAndThumbnail(item.id, item.url, item.title);
-        }
-    };
-
-    garafu.idx.createSummaryAndThumbnail = function (id, url, title) {
-        var NO_IMAGE_SRC = '//4.bp.blogspot.com/-9mCCaXTpn9I/VN4hDMsFXlI/AAAAAAAAC6U/i84N2Ng37Ik/s1600/noimage.png';
-        var $body, text, summary, $anchor, $container;
-
-        $body = $(document.getElementById(id));
-
-        // 画像取得
-        var src = $body.find('img:first').attr('src') || NO_IMAGE_SRC;
-
-        // サムネイル作成
-        var $thumbnail = $(document.createElement('span'));
-        $thumbnail.css('background-image', 'url(' + src + ')');
-        $thumbnail.addClass('index-post-thumbnail');
-
-        // 本文取得
-        text = $body.text() || '';
-        text = text.replace(/&lt;!--[\s\S]*--&gt;/g, '');
-        text = jQuery.trim(text);
-
-        // サマリ作成
-        if (text.length > SUMMARY_TEXT_MAX_COUNT) {
-            summary = text.substr(0, SUMMARY_TEXT_MAX_COUNT - 4);
-            summary += ' ...';
-        } else {
-            summary = text;
-        }
-
-        var $summary = $(document.createElement('div'));
-        $summary.addClass('index-post-summary');
-        $summary.text(summary);
-
-        // サマリ要素表示
-        $body.empty();
-        $body.append($thumbnail);
-        $body.append($summary);
-        $body.show();
-
-        // アンカータグの生成
-        $anchor = $(document.createElement('a'));
-        $anchor.attr('href', url);
-        $anchor.attr('title', title);
-
-        // DOMの再構築
-        $container = $body.parents('.index-post-item');
-        $container.children('a').remove();
-        $anchor.append($container.children());
-        $container.append($anchor);
     };
 
     /**
@@ -2110,8 +2068,10 @@ for(var F;D.length&&(F=D.shift());)D.length||void 0===B?E=E[F]?E[F]:E[F]={}:E[F]
     garafu.lib.init = function () {
         switch (BLOG_PAGE_TYPE) {
             case 'index':
+                this.initPostList();
                 break;
             case 'archive':
+                this.initPostList();
                 break;
             case 'item':
                 this.initSyntaxHighlighter();
@@ -2121,6 +2081,63 @@ for(var F;D.length&&(F=D.shift());)D.length||void 0===B?E=E[F]?E[F]:E[F]={}:E[F]
                 break;
             default:
         }
+    };
+
+    garafu.lib.initPostList = function () {
+        // 記事サマリの作成
+        for (i = SUMMARY_TARGET_LIST.length; i--;) {
+            item = SUMMARY_TARGET_LIST[i];
+            this.createSummaryAndThumbnail(item.id, item.url, item.title);
+        }
+    }
+
+    garafu.lib.createSummaryAndThumbnail = function (id, url, title) {
+        var NO_IMAGE_SRC = '//4.bp.blogspot.com/-9mCCaXTpn9I/VN4hDMsFXlI/AAAAAAAAC6U/i84N2Ng37Ik/s1600/noimage.png';
+        var $body, text, summary, $anchor, $container;
+
+        $body = $(document.getElementById(id));
+
+        // 画像取得
+        var src = $body.find('img:first').attr('src') || NO_IMAGE_SRC;
+
+        // サムネイル作成
+        var $thumbnail = $(document.createElement('span'));
+        $thumbnail.css('background-image', 'url(' + src + ')');
+        $thumbnail.addClass('index-post-thumbnail');
+
+        // 本文取得
+        text = $body.text() || '';
+        text = text.replace(/&lt;!--[\s\S]*--&gt;/g, '');
+        text = jQuery.trim(text);
+
+        // サマリ作成
+        if (text.length > SUMMARY_TEXT_MAX_COUNT) {
+            summary = text.substr(0, SUMMARY_TEXT_MAX_COUNT - 4);
+            summary += ' ...';
+        } else {
+            summary = text;
+        }
+
+        var $summary = $(document.createElement('div'));
+        $summary.addClass('index-post-summary');
+        $summary.text(summary);
+
+        // サマリ要素表示
+        $body.empty();
+        $body.append($thumbnail);
+        $body.append($summary);
+        $body.show();
+
+        // アンカータグの生成
+        $anchor = $(document.createElement('a'));
+        $anchor.attr('href', url);
+        $anchor.attr('title', title);
+
+        // DOMの再構築
+        $container = $body.parents('.index-post-item');
+        $container.children('a').remove();
+        $anchor.append($container.children());
+        $container.append($anchor);
     };
 
     garafu.lib.initSyntaxHighlighter = function () {
