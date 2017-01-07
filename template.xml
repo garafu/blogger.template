@@ -30,6 +30,11 @@ body {
   font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+}
+
 kbd {
   padding: 2px 4px;
   font-size: 90%;
@@ -1610,80 +1615,83 @@ h2.page-header {
       </section>
 <!-- ▲ main section ▲ -->
 <!-- ▼ sidebar section ▼ -->
-      <aside class="col-xs-12 col-sm-6 col-lg-4">
-        <div class="widget SocialLinks">
-          <h2 class="page-header">Social Links</h2>
-          <ul class='nav nav-pills nav-stacked'>
-            <li class="nav-item">
-              <a href='//www.facebook.com/galifeblog' target='_blank'>
-                <i class='fa fa-facebook fa-fw'></i>
-                <span>
-                  Facebook ページ <i class='fa fa-external-link'></i>
-                </span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href='//twitter.com/galifeblog' target='_blank'>
-                <i class='fa fa-twitter fa-fw'></i>
-                <span>
-                  twitter <i class='fa fa-external-link'></i>
-                </span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href='//github.com/garafu' target='_blank'>
-                <i class='fa fa-github fa-fw'></i>
-                <span>
-                  Github / garafu <i class='fa fa-external-link'></i>
-                </span>
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div class="widget SpecialPages">
-          <h2 class="page-header">Special Pages</h2>
-          <ul class='nav nav-pills nav-stacked'>
-            <li class="nav-item"><a href="//garafu.blogspot.com/p/web-application-development.html">Webアプリケーション開発</a></li>
-          </ul>
-        </div>
-        <b:if cond='data:blog.pageType == "item"'>
-          <div class="widget RelatedPosts">
-            <h2 class='page-header'>Related Posts</h2>
-            <div id='blogger.relatedposts.output'></div>
+      <aside class='col-xs-12 col-sm-12 col-lg-4'>
+        <div class='col-xs-12 col-sm-6 col-lg-12'>
+          <div class="widget SocialLinks">
+            <h2 class="page-header">Social Links</h2>
+            <ul class='nav nav-pills nav-stacked'>
+              <li class="nav-item">
+                <a href='//www.facebook.com/galifeblog' target='_blank'>
+                  <i class='fa fa-facebook fa-fw'></i>
+                  <span>
+                    Facebook ページ <i class='fa fa-external-link'></i>
+                  </span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href='//twitter.com/galifeblog' target='_blank'>
+                  <i class='fa fa-twitter fa-fw'></i>
+                  <span>
+                    twitter <i class='fa fa-external-link'></i>
+                  </span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href='//github.com/garafu' target='_blank'>
+                  <i class='fa fa-github fa-fw'></i>
+                  <span>
+                    Github / garafu <i class='fa fa-external-link'></i>
+                  </span>
+                </a>
+              </li>
+            </ul>
           </div>
-        </b:if>
-      </aside>
-      <aside class="col-xs-12 col-sm-6 col-lg-4">
-        <b:section class='sidebar' id='sidebar' maxwidgets='' showaddelement='yes'>
-          <b:widget id='PopularPosts1' locked='false' title='Popular Posts' type='PopularPosts' version='1' visible='true'>
-            <b:includable id='main'>
-              <h2 class='popularposts-title page-header'><data:title /></h2>
-              <ul class='popularposts-list nav nav-pills nav-stacked'>
-                <b:loop var='post' values='data:posts'>
-                  <li class='popularposts-item'>
-                    <b:include name='popularposts-post' data='post' />
-                  </li>
-                </b:loop>
-              </ul>
-            </b:includable>
-            <b:includable id='popularposts-post' var='post'>
-              <a class='item-content' expr:href='data:post.href' expr:title='data:post.title'>
-                <b:if cond='data:post.thumbnail'>
-                  <div class='item-thumbnail'>
-                    <img alt='' border='0' expr:height='data:thumbnailSize' expr:src='data:post.thumbnail' expr:width='data:thumbnailSize'/>
+          <div class="widget SpecialPages">
+            <h2 class="page-header">Special Pages</h2>
+            <ul class='nav nav-pills nav-stacked'>
+              <li class="nav-item"><a href="//garafu.blogspot.com/p/web-application-development.html">Webアプリケーション開発</a></li>
+            </ul>
+          </div>
+          <b:if cond='data:blog.pageType == "item"'>
+            <div class="widget RelatedPosts">
+              <h2 class='page-header'>Related Posts</h2>
+              <div id='blogger.relatedposts.output'></div>
+            </div>
+          </b:if>
+        </div>
+        <div class='col-xs-12 col-sm-6 col-lg-12'>
+          <b:section class='sidebar' id='sidebar' maxwidgets='' showaddelement='yes'>
+            <b:widget id='PopularPosts1' locked='false' title='Popular Posts' type='PopularPosts' version='1' visible='true'>
+              <b:includable id='main'>
+                <h2 class='popularposts-title page-header'><data:title /></h2>
+                <ul class='popularposts-list nav nav-pills nav-stacked'>
+                  <b:loop var='post' values='data:posts'>
+                    <li class='popularposts-item'>
+                      <b:include name='popularposts-post' data='post' />
+                    </li>
+                  </b:loop>
+                </ul>
+              </b:includable>
+              <b:includable id='popularposts-post' var='post'>
+                <a class='item-content' expr:href='data:post.href' expr:title='data:post.title'>
+                  <b:if cond='data:post.thumbnail'>
+                    <div class='item-thumbnail'>
+                      <img alt='' border='0' expr:height='data:thumbnailSize' expr:src='data:post.thumbnail' expr:width='data:thumbnailSize'/>
+                    </div>
+                  </b:if>
+                  <div class='item-title'>
+                    <data:post.title />
                   </div>
-                </b:if>
-                <div class='item-title'>
-                  <data:post.title />
-                </div>
-                <div class='item-snippet'>
-                  <data:post.snippet />
-                </div>
-              </a>
-            </b:includable>
-          </b:widget>
-        </b:section>
-      </aside>      
+                  <div class='item-snippet'>
+                    <data:post.snippet />
+                  </div>
+                </a>
+              </b:includable>
+            </b:widget>
+          </b:section>
+        </div>             
+      </aside>
+ 
 <!-- ▲ sidebar section ▲ -->
     </div>
   </div>
