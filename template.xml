@@ -514,9 +514,18 @@ body.navbar-fixed-in {
 
 /* social buttons
 --------------------------------------*/
-.socialbutton {
+.socialbutton-list {
+  height: 41px;
+  line-height: 41px;
+}
+.socialbutton-item {
+  float: left;
+  height: 41px;
+  line-height: 41px;
+}
+.socialbutton-link {
   display: inline-block;
-  height: 48px;
+  height: 31px;
   width: 80px;
   margin: 5px;
   text-align: center;
@@ -534,40 +543,50 @@ body.navbar-fixed-in {
 }
 .socialbutton-button {
   display: block;
-  height: 24px;
-  line-height: 24px;
+  height: 31px;
+  line-height: 31px;
   color: #ffffff;
 }
 .socialbutton-icon {
-  background-image: url(//1.bp.blogspot.com/-SeLVOiP_9qo/VQTRJBi0W2I/AAAAAAAAC80/tOuJiDJEw7k/s1600/spritesheet.png);
+  background-image: url(//3.bp.blogspot.com/-l0YOvyhKgTY/WKhny01OQDI/AAAAAAAADwk/9dNsX7ueHzIyqD4HnSvSnmMi8yt7iLfBACLcB/s1600/spritesheet.png);
   background-repeat: no-repeat;
   display: inline-block;
-  margin: 5px 5px 5px 0;
+  margin: 7px 2px 7px 0;
 }
 .socialbutton-icon-facebook {
-  width: 14px;
-  height: 14px;
-  background-position: -5px -5px;
+  width: 17px;
+  height: 17px;
+  background-position: -2px -2px;
 }
-.socialbutton-icon-google-plus {
-  width: 13px;
-  height: 14px;
-  background-position: -5px -29px;
+.socialbutton-icon-plusone {
+  width: 17px;
+  height: 17px;
+  background-position: -2px -23px;
 }
 .socialbutton-icon-hatebu {
   width: 17px;
-  height: 14px;
-  background-position: -5px -53px;
+  height: 17px;
+  background-position: -2px -44px;
+}
+.socialbutton-icon-line {
+  width: 17px;
+  height: 17px;
+  background-position: -2px -65px;
 }
 .socialbutton-icon-pocket {
-  width: 16px;
-  height: 14px;
-  background-position: -5px -77px;
+  width: 17px;
+  height: 17px;
+  background-position: -2px -86px;
+}
+.socialbutton-icon-tumblr {
+  width: 17px;
+  height: 17px;
+  background-position: -2px -107px;
 }
 .socialbutton-icon-twitter {
   width: 17px;
-  height: 14px;
-  background-position: -5px -101px;
+  height: 17px;
+  background-position: -2px -128px;
 }
 .socialbutton-name {
   vertical-align: top;
@@ -602,22 +621,37 @@ body.navbar-fixed-in {
 .pocket-share-button:hover {
   background-color: #ba3244;
 }
+.line-share-button {
+  background-color: #00b900;
+}
+.line-share-button:hover {
+  background-color: #0fa30f;
+}
+.tumblr-share-button {
+  background-color: #36465d;
+}
+.tumblr-share-button:hover {
+  background-color: #293647;
+}
 
 /* For mobile CSS (tablet size) */
-@media (min-width: 380px) and (max-width: 768px) {
-  .socialbutton{
-    width: 90px;
+@media (min-width: 750px) and (max-width: 970px) {
+  .socialbutton-link {
+    width: 70px;
+  }
+  .socialbutton-name {
+    display: none;
   }
 }
 
 /* For mobile CSS (smartphone size) */
-@media (max-width: 380px) {
-  .socialbutton{
-    width: 50px;
+@media (max-width: 750px) {
+  .socialbutton-link {
+    width: 40px;
     margin: 2px;
   }
   .socialbutton-icon {
-    margin: 5px 0;
+    margin: 7px 0;
   }
   .socialbutton-name {
     display: none;
@@ -1305,11 +1339,10 @@ html, body {
       </article>
     </b:includable>
     <b:includable id='item-post-sharebutton' var='post'>
-      <div style='table-layout:fixed;'>
+      <div class='socialbutton-list'>
         <!-- twitter -->
-        <span class='goog-inline-block sharebutton_twitter' style='display:table-cell;'>
-          <a class='twitter-share-button socialbutton' expr:href='"https://twitter.com/share?url=" + data:post.url + "&amp;text=" + data:post.title' target='_blank'>
-            <span class='socialbutton-count' id='tweetcount'/>
+        <span class='socialbutton-item sharebutton_twitter'>
+          <a class='twitter-share-button socialbutton-link' expr:href='"https://twitter.com/share?url=" + data:post.url + "&amp;text=" + data:post.title' target='_blank'>
             <span class='socialbutton-button'>
               <i class='socialbutton-icon socialbutton-icon-twitter'/>
               <span class='socialbutton-name'>tweet</span>
@@ -1317,9 +1350,8 @@ html, body {
           </a>
         </span>
         <!-- facebook -->
-        <span class='goog-inline-block sharebutton_facebook' style='display:table-cell;'>
-          <a class='facebook-share-button socialbutton' expr:href='"https://www.facebook.com/sharer/sharer.php?u=" + data:post.url + "&amp;t=" + data:post.title' target='_blank'>
-            <span class='socialbutton-count' id='facebookcount'/>
+        <span class='socialbutton-item sharebutton_facebook'>
+          <a class='facebook-share-button socialbutton-link' expr:href='"https://www.facebook.com/sharer/sharer.php?u=" + data:post.url + "&amp;t=" + data:post.title' target='_blank'>
             <span class='socialbutton-button'>
               <i class='socialbutton-icon socialbutton-icon-facebook'/>
               <spans class='socialbutton-name'>share</spans>
@@ -1327,32 +1359,47 @@ html, body {
           </a>
         </span>
         <!-- google +1 -->
-        <span class='goog-inline-block sharebutton_plusone' style='display:table-cell;'>
-          <a class='plusone-share-button socialbutton' expr:href='"https://plusone.google.com/_/+1/confirm?url=" + data:post.url + "&amp;title=" + data:post.title' target='_blank'>
-            <span class='socialbutton-count' id='plusonecount'/>
+        <span class='socialbutton-item sharebutton_plusone'>
+          <a class='plusone-share-button socialbutton-link' expr:href='"https://plusone.google.com/_/+1/confirm?url=" + data:post.url + "&amp;title=" + data:post.title' target='_blank'>
             <span class='socialbutton-button'>
-              <i class='socialbutton-icon socialbutton-icon-google-plus'/>
+              <i class='socialbutton-icon socialbutton-icon-plusone'/>
               <span class='socialbutton-name'>+1</span>
             </span>
           </a>
         </span>
         <!-- hatena blog -->
-        <span class='goog-inline-block sharebutton_hatebu' style='display:table-cell;'>
-          <a class='hatena-share-button socialbutton' expr:href='"https://b.hatena.ne.jp/entry/" + data:post.url' target='_blank'>
-            <span class='socialbutton-count' id='hatenacount'/>
+        <span class='socialbutton-item sharebutton_hatebu'>
+          <a class='hatena-share-button socialbutton-link' expr:href='"https://b.hatena.ne.jp/entry/" + data:post.url' target='_blank'>
             <span class='socialbutton-button'>
-              <span class='socialbutton-icon socialbutton-icon-hatebu'/>
+              <i class='socialbutton-icon socialbutton-icon-hatebu'/>
               <span class='socialbutton-name'>hatebu</span>
             </span>
           </a>
         </span>
         <!-- pocket -->
-        <span class='goog-inline-block sharebutton_pocket' style='display:table-cell;'>
-          <a class='pocket-share-button socialbutton' expr:href='"https://getpocket.com/edit?url=" + data:post.url' target='_blank'>
-            <span class='socialbutton-count' id='pocketcount'/>
+        <span class='socialbutton-item sharebutton_pocket'>
+          <a class='pocket-share-button socialbutton-link' expr:href='"https://getpocket.com/edit?url=" + data:post.url' target='_blank'>
             <span class='socialbutton-button'>
-              <span class='socialbutton-icon socialbutton-icon-pocket'/>
+              <i class='socialbutton-icon socialbutton-icon-pocket'/>
               <span class='socialbutton-name'>pocket</span>
+            </span>
+          </a>
+        </span>
+        <!-- LINE -->
+        <span class='socialbutton-item sharebutton_line'>
+          <a class='line-share-button socialbutton-link' expr:href='"https://lineit.line.me/share/ui?url=" + data:post.url' target='_blank'>            
+            <span class='socialbutton-button'>
+              <i class='socialbutton-icon socialbutton-icon-line'/>
+              <span class='socialbutton-name'>LINE</span>
+            </span>
+          </a>
+        </span>
+        <!-- tumblr -->
+        <span class='socialbutton-item sharebutton_tumblr'>
+          <a class='tumblr-share-button socialbutton-link' expr:href='"https://www.tumblr.com/share/link?url=" + data:post.url + "&amp;name=" + data:post.title' target='_blank'>            
+            <span class='socialbutton-button'>
+              <i class='socialbutton-icon socialbutton-icon-tumblr' />
+              <span class='socialbutton-name'>tumblr</span>
             </span>
           </a>
         </span>
@@ -2418,125 +2465,8 @@ var BLOG_PAGE_TYPE = '<data:blog.pageType />';
             return;
         }
 
-        this.initSocialButtons();
         this.initRelatedPosts();
     };
-
-    garafu.itm.initSocialButtons = function () {
-        var url = '', href = '', query = '', location = null;
-
-        // 現在のクエリパラメータを含まないURLを取得
-        location = window.location;
-        href = location.href.substr(0, location.href.length - location.search.length - location.hash.length);
-
-        // ツイート数を取得
-        url = '';
-        url += '//jsoon.digitiminimi.com/twitter/count.json?url=';
-        url += window.encodeURI(href);
-        $.ajax({
-            url: url,
-            dataType: 'jsonp',
-            success: function (data) {
-                $(document.getElementById('tweetcount')).text(data.count || 0);
-            }
-        });
-
-        // Facebookいいね数を取得
-        url = '';
-        url += '//graph.facebook.com/?id=';
-        url += window.encodeURI(href);
-        $.ajax({
-            url: url,
-            dataType: 'jsonp',
-            success: function (data) {
-                $(document.getElementById('facebookcount')).text(data.shares || 0);
-            }
-        });
-
-        // google +1 数を取得
-        url = '';
-        url += window.encodeURI(href);
-        query = '';
-        query += 'SELECT content FROM data.headers WHERE url="https://plusone.google.com/_/+1/fastbutton?hl=ja&amp;url=';
-        query += url;
-        query += '" and ua="#Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.154 Safari/537.36"';
-        $.ajax({
-            type: 'GET',
-            url: '//query.yahooapis.com/v1/public/yql',
-            dataType: 'xml',
-            data: {
-                q: query,
-                format: 'xml',
-                env: 'http://datatables.org/alltables.env',
-            },
-            success: function (data, textStatus, jqXHR) {
-                var content = $(data).find("content").text();
-                var match = content.match(/window\.__SSR[\s*]=[\s*]{c:[\s*](\d+)/i);
-                var count = (match != null) ? match[1] : 0;
-                $(document.getElementById('plusonecount')).text(count);
-            }
-        });
-
-        // はてぶ数を取得
-        (function () {
-            var api = 'https://b.hatena.ne.jp/entry.count?url=';
-            var path = href.substr(location.protocol.length, href.length);
-            var recieved = 0, count = 0;
-
-            var onsuccess = function (data, textStatus, jqXHR) {
-                recieved += 1;
-                count += data || 0;
-                if (recieved != 2) {
-                    return;
-                }
-                $(document.getElementById('hatenacount')).text(count || 0);
-            };
-
-            // httpのURL
-            $.ajax({
-                url: api + window.encodeURI('http:' + path),
-                dataType: 'jsonp',
-                success: onsuccess
-            });
-
-            // httpsのURL
-            $.ajax({
-                url: api + window.encodeURI('https:' + path),
-                dataType: 'jsonp',
-                success: onsuccess
-            });
-        })();
-
-        // pocket数を取得
-        url = '';
-        url += window.encodeURI(href);
-        query = '';
-        query += 'SELECT content FROM data.headers WHERE url="https://widgets.getpocket.com/v1/button?label=pocket&amp;count=vertical&amp;v=1&amp;url=';
-        query += url;
-        query += '" and ua="#Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.154 Safari/537.36"';
-        $.ajax({
-            type: 'GET',
-            url: '//query.yahooapis.com/v1/public/yql',
-            dataType: 'xml',
-            data: {
-                q: query,
-                format: 'xml',
-                env: 'http://datatables.org/alltables.env',
-            },
-            success: function (data, textStatus, jqXHR) {
-                var content = jQuery(data).find("content").text();
-                var match = content.match(/&lt;em id="cnt"&gt;(\d+)&lt;\/em&gt;/i);
-                var count = (match != null) ? match[1] : 0;
-                $(document.getElementById('pocketcount')).text(count);
-            }
-        });
-
-        // クリックイベント登録
-        $('.socialbutton').on('click', function (event) {
-            event.preventDefault();
-            window.open($(this).attr('href'), 'socialwindow', 'width=600, height=400, menubar=no, toolbar=no, scrollbars=yes');
-        });
-    }
 
     garafu.itm.initRelatedPosts = function () {
 //<![CDATA[
