@@ -634,7 +634,7 @@ body.navbar-fixed-in {
   background-color: #293647;
 }
 
-/* For mobile CSS (tablet size) */
+/* For mobile CSS (extra small size) */
 @media (min-width: 750px) and (max-width: 970px) {
   .socialbutton-link {
     width: 70px;
@@ -644,10 +644,30 @@ body.navbar-fixed-in {
   }
 }
 
-/* For mobile CSS (smartphone size) */
-@media (max-width: 750px) {
+/* For mobile CSS (tablet size) */
+@media (min-width: 375px) and (max-width: 750px) {
   .socialbutton-link {
     width: 40px;
+    margin: 2px;
+  }
+  .socialbutton-icon {
+    margin: 7px 0;
+  }
+  .socialbutton-name {
+    display: none;
+  }
+}
+
+/* For mobile CSS (smartphone size) */
+@media (max-width: 375px) {
+  .socialbutton-list {
+    display: table;
+  }
+  .socialbutton-item {
+    display: table-cell;
+  }
+  .socialbutton-link {
+    width: 38px;
     margin: 2px;
   }
   .socialbutton-icon {
@@ -999,6 +1019,13 @@ h4.strong {
   font-size: 50px;
   cursor: pointer;
   display: block;
+}
+
+/* For mobile CSS (tablet size) */
+@media (max-width: 750px) {
+  #btn-top {
+    margin: 0 10px 10px 0;
+  }
 }
 
 h2.page-header {
