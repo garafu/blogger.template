@@ -1096,21 +1096,21 @@ html, body {
             <div class='navbar-menu' id='navbar-menu'>
               <ul class='nav navbar-nav' id='navbar-menu-list'>
                 <li class='nav-item' itemprop='name'>
-                  <a href='//garafu.blogspot.com/p/blog-page.html' itemprop='url'>記事一覧</a>
+                  <a href='//garafu.blogspot.com/p/blog-page.html' class='navbar-item' itemprop='url'>記事一覧</a>
                 </li>
                 <li class='nav-item dropdown' itemprop='name'>
                   <a class='dropdown-toggle' id='navbar-menu-dropdown-sp' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>特集記事<span class='caret'></span></a>
                   <ul class='dropdown-menu' aria-labelledby='navbar-menu-dropdown-sp' itemscope='itemscope' itemtype='https://schema.org/SiteNavigationElement'>
                     <li class='dropdown-item' itemprop='name'>
-                      <a class='nav-item' href='//garafu.blogspot.com/p/web-application-development.html' itemprop='url'>Webアプリケーション開発</a>
+                      <a class='nav-item navbar-item' href='//garafu.blogspot.com/p/web-application-development.html' itemprop='url'>Webアプリケーション開発</a>
                     </li>
                   </ul>
                 </li>
                 <li class='nav-item' itemprop='name'>
-                  <a href='//garafu.blogspot.com/p/product.html' itemprop='url'>製品一覧</a>
+                  <a href='//garafu.blogspot.com/p/product.html' class='navbar-item' itemprop='url'>製品一覧</a>
                 </li>
                 <li class='nav-item' itemprop='name'>
-                  <a href='//garafu.blogspot.com/p/about.html' itemprop='url'>このブログについて</a>
+                  <a href='//garafu.blogspot.com/p/about.html' class='navbar-item' itemprop='url'>このブログについて</a>
                 </li>
               </ul>
 
@@ -2519,18 +2519,27 @@ for(var F;D.length&&(F=D.shift());)D.length||void 0===B?E=E[F]?E[F]:E[F]={}:E[F]
             case 'index':
                 this.initButtonTop();
                 this.initPostList();
+                this.initGaNavbar();
+                this.initGaPopularPosts();
                 break;
             case 'archive':
                 this.initButtonTop();
                 this.initPostList();
+                this.initGaNavbar();
+                this.initGaPopularPosts();
                 break;
             case 'item':
                 this.initButtonTop();
                 this.initSyntaxHighlighter();
+                this.initGaNavbar();
+                this.initGaShare();
+                this.initGaPopularPosts();
                 break;
             case 'static_page':
                 this.initButtonTop();
                 this.initSyntaxHighlighter();
+                this.initGaNavbar();
+                this.initGaPopularPosts();
                 break;
             default:
         }
@@ -2659,6 +2668,20 @@ for(var F;D.length&&(F=D.shift());)D.length||void 0===B?E=E[F]?E[F]:E[F]={}:E[F]
 
         // ブラシの自動読み込み
         SyntaxHighlighter.all();
+    };
+
+    garafu.lib.initGaNavbar = function () {
+        $('#header a.navbar-brand').on('click', function (event) { ga('send', 'event', 'navbar', 'click', this.href, 1); });
+        $('#header a.navbar-item').on('click', function (event) { ga('send', 'event', 'navbar', 'click', this.href, 1); });
+        $('#frmNavbarSearch button').on('click', function (event) { ga('send', 'event', 'navbar', 'click', '/search=' + $('#frmNavbarSearch #s').val(), 1); });
+    };
+
+    garafu.lib.initGaShare = function () {
+        $('a.socialbutton-link').on('click', function (event) { ga('send', 'event', 'share', 'click', this.href, 1); });
+    };
+    
+    garafu.lib.initGaPopularPosts = function () {
+        $('#PopularPosts1 a.item-content').on('click', function (event) { ga('send', 'event', 'popularposts', 'click', this.href, 1); });
     };
 
     // ドキュメント読み込み後のエントリーポイント
