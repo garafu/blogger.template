@@ -379,6 +379,10 @@ body.navbar-fixed-in {
   margin: 0 5px 5px 0;
 }
 
+.RelatedPosts .item-title {
+  font-weight: bold;
+}
+
 .RelatedPosts img {
   padding: 3px;
 }
@@ -397,6 +401,10 @@ body.navbar-fixed-in {
 .PopularPosts .item-thumbnail {
   float: left;
   margin: 0 5px 5px 0;
+}
+
+.PopularPosts .item-title {
+  font-weight: bold;
 }
 
 /*---------------------------------------------------
@@ -984,6 +992,10 @@ h2.strong, h3.strong, h4.strong {
   border-left: 5px solid #dddddd;
 }
 
+h2.strong {
+  background: #f9f9f9;
+}
+
 h4.strong {
   font-weight: bold;
 }
@@ -1071,6 +1083,7 @@ html, body {
     ga('send', 'pageview');
 
   </script>
+  <script src='//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js' type='text/javascript'></script>
 </head>
 <body itemscope='itemscope' itemtype='https://schema.org/Blog'>
 
@@ -2421,7 +2434,6 @@ html, body {
   <i id='btn-top' class='fa fa-arrow-up btn-top' aria-hidden='true' style='display:none;'></i>
 
 <!-- ▼ script area ▼ -->
-  <script src='//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js' type='text/javascript'></script>
   <script src='//www.google.com/jsapi' type='text/javascript'/>
   <script src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js' type='text/javascript'></script>
   <script src='//cdnjs.cloudflare.com/ajax/libs/SyntaxHighlighter/3.0.83/scripts/shCore.js' type='text/javascript'/>
