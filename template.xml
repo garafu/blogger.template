@@ -237,6 +237,10 @@ body.navbar-fixed-in {
   padding-left: 15px;
 }
 
+.footer .badge {
+  display: initial;
+}
+
 /* footer top */
 .footer-top {
   background-color: #efefef;
