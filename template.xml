@@ -1037,6 +1037,10 @@ h4.strong {
   display: block;
 }
 
+.adsense {
+  margin: 20px 0
+}
+
 /* For mobile CSS (tablet size) */
 @media (max-width: 750px) {
   #btn-top {
@@ -1090,10 +1094,10 @@ html, body {
   <script src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   <script>
    (adsbygoogle = window.adsbygoogle || []).push({
-     google_ad_client: "pub-5199605192586756",
+     google_ad_client: "ca-pub-5199605192586756",
      enable_page_level_ads: true
    });
-  </script>  
+  </script>
   <script src='//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js' type='text/javascript'></script>
 </head>
 <body itemscope='itemscope' itemtype='https://schema.org/Blog'>
@@ -1366,11 +1370,29 @@ html, body {
             <b:include name='item-post-sharebutton' data='post' />
           </div>
         </header>
+        <div class='item-post-top-adsense adsense'>
+          <!-- [galife]item-post-top-adsense -->
+          <ins class="adsbygoogle"
+               style="display:block"
+               data-ad-client="ca-pub-5199605192586756"
+               data-ad-slot="5234319825"
+               data-ad-format="auto"></ins>
+          <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
         <div class='item-post-body post-body' itemprop='articleBody'>
           <data:post.body />
         </div>
         <div class='item-post-pager' itemprop='pagination'>
           <b:include name='item-post-nextprev' data='post' />
+        </div>
+        <div class='item-post-bottom-adsense adsense'>
+          <!-- [galife]item-post-bottom-adsense -->
+          <ins class="adsbygoogle"
+               style="display:block"
+               data-ad-client="ca-pub-5199605192586756"
+               data-ad-slot="1362523423"
+               data-ad-format="auto"></ins>
+          <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
         </div>
         <div class='item-post-comments' itemprop='comment'>
           <b:include name='threaded_comments' data='post' />
@@ -1816,7 +1838,16 @@ html, body {
               </b:includable>
             </b:widget>
           </b:section>
-        </div>             
+          <div class='"widget sidemenu-adsense adsense'>
+            <!-- [galife]sidemenu-adsense -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-5199605192586756"
+                 data-ad-slot="5836422220"
+                 data-ad-format="auto"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+          </div>
+        </div>
       </aside>
 <!-- ▲ sidebar section ▲ -->
     </div>
