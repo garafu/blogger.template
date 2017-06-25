@@ -1370,15 +1370,6 @@ html, body {
             <b:include name='item-post-sharebutton' data='post' />
           </div>
         </header>
-        <div class='item-post-top-adsense adsense'>
-          <!-- [galife]item-post-top-adsense -->
-          <ins class="adsbygoogle"
-               style="display:block"
-               data-ad-client="ca-pub-5199605192586756"
-               data-ad-slot="5234319825"
-               data-ad-format="auto"></ins>
-          <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-        </div>
         <div class='item-post-body post-body' itemprop='articleBody'>
           <data:post.body />
         </div>
@@ -1801,6 +1792,15 @@ html, body {
               <li class="nav-item"><a href="//garafu.blogspot.com/p/web-application-development.html">Webアプリケーション開発</a></li>
             </ul>
           </div>
+          <div class='item-post-top-adsense adsense'>
+            <!-- [galife]item-post-top-adsense -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-5199605192586756"
+                 data-ad-slot="5234319825"
+                 data-ad-format="auto"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+          </div>          
           <b:if cond='data:blog.pageType == "item"'>
             <div class="widget RelatedPosts">
               <h2 class='page-header'>Related Posts</h2>
