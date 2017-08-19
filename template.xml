@@ -1833,14 +1833,14 @@ html, body {
               <li class="nav-item"><a href="//garafu.blogspot.com/p/web-application-development.html">Webアプリケーション開発</a></li>
             </ul>
           </div>
-          <div class='widget sidemenu-top-adsense adsense'>
+          <div class='widget sidemenu-top-adsense adsense sponly'>
             <ins class='adsbygoogle'
-                 style='display:block'
-                 data-ad-client='ca-pub-5199605192586756'
-                 data-ad-slot='1891757021'
-                 data-ad-format='auto'></ins>
+                  style='display:block'
+                  data-ad-client='ca-pub-5199605192586756'
+                  data-ad-slot='1891757021'
+                  data-ad-format='auto'></ins>
             <script>try{(adsbygoogle = window.adsbygoogle || []).push({});}catch(e){}</script>
-          </div>          
+          </div>
           <b:if cond='data:blog.pageType == "item"'>
             <div class="widget RelatedPosts">
               <h2 class='page-header'>Related Posts</h2>
@@ -1878,6 +1878,13 @@ html, body {
               </b:includable>
             </b:widget>
           </b:section>
+          <div class='widget sidemenu-top-adsense adsense pconly'>
+            <ins class="adsbygoogle"
+                  style="display:inline-block;width:300px;height:600px"
+                  data-ad-client="ca-pub-5199605192586756"
+                  data-ad-slot="2751211429"></ins>
+            <script>try{(adsbygoogle = window.adsbygoogle || []).push({});}catch(e){}</script>
+          </div>
           <div class='widget sidemenu-bottom-adsense adsense sponly'>
             <ins class='adsbygoogle'
                  style='display:block'
