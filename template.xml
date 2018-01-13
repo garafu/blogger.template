@@ -1806,7 +1806,9 @@ html, body {
         <div class='col-xs-12 col-sm-6 col-lg-12'>
           <div class="widget SocialLinks">
             <h2 class="page-header">Social Links</h2>
-            
+            <p>
+              <small>このブログの新着記事情報は以下の Facebookページ か Twitter をフォローすると受け取れます。</small>
+            </p>
             <ul class='nav nav-pills nav-stacked'>
               <li class="nav-item">
                 <a href='//www.facebook.com/galifeblog' target='_blank'>
@@ -1821,14 +1823,6 @@ html, body {
                   <i class='fa fa-twitter fa-fw'></i>
                   <span>
                     twitter <i class='fa fa-external-link'></i>
-                  </span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href='//github.com/garafu' target='_blank'>
-                  <i class='fa fa-github fa-fw'></i>
-                  <span>
-                    Github / garafu <i class='fa fa-external-link'></i>
                   </span>
                 </a>
               </li>
