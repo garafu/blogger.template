@@ -518,9 +518,15 @@ body.navbar-fixed-in {
   margin: 10px 0;
 }
 
-.item-post-social {
+header .item-post-social {
   margin: 10px 0 20px;
   padding-bottom: 9px;
+  border-bottom: 1px solid #efefef;
+}
+
+footer .item-post-social {
+  padding: 14px 0;
+  border-top: 1px solid #efefef;
   border-bottom: 1px solid #efefef;
 }
 
@@ -1274,11 +1280,6 @@ html, body {
           <b:include name='index-post' data='post' />
         </b:loop>
       </div>
-<!--
-      <nav class='text-center' id='blog-pager'>
-        <b:include name='index-pagenation' />
-      </nav>
--->
     </b:includable>
     <b:includable id='item' var='top'>
       <b:loop var='post' values='data:posts'>
@@ -1405,30 +1406,35 @@ html, body {
         <div class='item-post-body post-body' itemprop='articleBody'>
           <data:post.body />
         </div>
-        <div class='item-post-pager' itemprop='pagination'>
-          <b:include name='item-post-nextprev' data='post' />
-        </div>
-        <div class='item-post-bottom-adsense adsense'>
-          <div class='left-column'>
-            <ins class='adsbygoogle'
-                 style='display:block; max-width:340px; margin:0 auto;'
-                 data-ad-client='ca-pub-5199605192586756'
-                 data-ad-slot='1362523423'
-                 data-ad-format='auto'></ins>
-            <script>try{(adsbygoogle = window.adsbygoogle || []).push({});}catch(e){}</script>
+        <footer class='item-post-footer'>
+          <div class='item-post-pager' itemprop='pagination'>
+            <b:include name='item-post-nextprev' data='post' />
           </div>
-          <div class='right-column pconly'>
-            <ins class='adsbygoogle'
-                 style='display:block; max-width:340px; margin:0 auto;'
-                 data-ad-client='ca-pub-5199605192586756'
-                 data-ad-slot='5234319825'
-                 data-ad-format='auto'></ins>
-            <script>try{(adsbygoogle = window.adsbygoogle || []).push({});}catch(e){}</script>
+          <div class='item-post-social'>
+            <b:include name='item-post-sharebutton' data='post' />
           </div>
-        </div>
-        <div class='item-post-comments' itemprop='comment'>
-          <b:include name='threaded_comments' data='post' />
-        </div>
+          <div class='item-post-bottom-adsense adsense'>
+            <div class='left-column'>
+              <ins class='adsbygoogle'
+                  style='display:block; max-width:340px; margin:0 auto;'
+                  data-ad-client='ca-pub-5199605192586756'
+                  data-ad-slot='1362523423'
+                  data-ad-format='auto'></ins>
+              <script>try{(adsbygoogle = window.adsbygoogle || []).push({});}catch(e){}</script>
+            </div>
+            <div class='right-column pconly'>
+              <ins class='adsbygoogle'
+                  style='display:block; max-width:340px; margin:0 auto;'
+                  data-ad-client='ca-pub-5199605192586756'
+                  data-ad-slot='5234319825'
+                  data-ad-format='auto'></ins>
+              <script>try{(adsbygoogle = window.adsbygoogle || []).push({});}catch(e){}</script>
+            </div>
+          </div>
+          <div class='item-post-comments' itemprop='comment'>
+            <b:include name='threaded_comments' data='post' />
+          </div>
+        </footer>
       </article>
     </b:includable>
     <b:includable id='static-post' var='post'>
@@ -1800,6 +1806,7 @@ html, body {
         <div class='col-xs-12 col-sm-6 col-lg-12'>
           <div class="widget SocialLinks">
             <h2 class="page-header">Social Links</h2>
+            
             <ul class='nav nav-pills nav-stacked'>
               <li class="nav-item">
                 <a href='//www.facebook.com/galifeblog' target='_blank'>
