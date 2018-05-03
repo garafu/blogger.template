@@ -1405,6 +1405,7 @@ html, body {
         </header>
         <div class='item-post-body post-body' itemprop='articleBody'>
           <data:post.body />
+          <b:include name='item-post-call2action' data='post' />
         </div>
         <footer class='item-post-footer'>
           <div class='item-post-pager' itemprop='pagination'>
@@ -1515,6 +1516,32 @@ html, body {
           </a>
         </span>
       </div>
+    </b:includable>
+    <b:includable id='item-post-call2action' var='post'>
+      <p style='margin-top:5em'>
+        最後に…
+        このブログに興味を持っていただけた方は、
+        ぜひ 「Facebookページ に いいね！」または 「Twitter の フォロー」 お願いします！！
+      </p>
+      <ul id='item-post-call2action' class='nav nav-pills nav-stacked'>
+        <li class="nav-item">
+          <a href='//www.facebook.com/galifeblog' target='_blank'>
+            <i class='fa fa-facebook fa-fw'></i>
+            <span>
+              Facebook ページ <i class='fa fa-external-link'></i>
+            </span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href='//twitter.com/galifeblog' target='_blank'>
+            <i class='fa fa-twitter fa-fw'></i>
+            <span>
+              twitter <i class='fa fa-external-link'></i>
+            </span>
+          </a>
+        </li>
+      </ul>
+      <p style='margin-top:5em;'>&amp;nbsp;</p>
     </b:includable>
     <b:includable id='item-post-nextprev' var='post'>
       <nav>
@@ -1804,12 +1831,42 @@ html, body {
 <!-- ▼ sidebar section ▼ -->
       <aside class='col-xs-12 col-sm-12 col-lg-4'>
         <div class='col-xs-12 col-sm-6 col-lg-12'>
+<!--
+          <div class='panel panel-default' style='margin-top:40px'>
+            <div class='panel-heading'>
+              <h2 style='font-size: 24px'>Social Links</h2>
+            </div>
+            <div class='panel-body'>
+              <p>
+                <small>このブログの新着記事情報は以下の Facebookページ か Twitter をフォローすると受け取れます。</small>
+              </p>
+              <ul id='sidebar-top-call2action' class='nav nav-pills nav-stacked'>
+                <li class="nav-item">
+                  <a href='//www.facebook.com/galifeblog' target='_blank'>
+                    <i class='fa fa-facebook fa-fw'></i>
+                    <span>
+                      Facebook ページ <i class='fa fa-external-link'></i>
+                    </span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href='//twitter.com/galifeblog' target='_blank'>
+                    <i class='fa fa-twitter fa-fw'></i>
+                    <span>
+                      twitter <i class='fa fa-external-link'></i>
+                    </span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+-->
           <div class="widget SocialLinks">
             <h2 class="page-header">Social Links</h2>
             <p>
               <small>このブログの新着記事情報は以下の Facebookページ か Twitter をフォローすると受け取れます。</small>
             </p>
-            <ul class='nav nav-pills nav-stacked'>
+            <ul id='sidebar-top-call2action' class='nav nav-pills nav-stacked'>
               <li class="nav-item">
                 <a href='//www.facebook.com/galifeblog' target='_blank'>
                   <i class='fa fa-facebook fa-fw'></i>
@@ -2622,12 +2679,14 @@ for(var F;D.length&&(F=D.shift());)D.length||void 0===B?E=E[F]?E[F]:E[F]={}:E[F]
                 this.initPostList();
                 this.initGaNavbar();
                 this.initGaPopularPosts();
+                this.initGaCta();
                 break;
             case 'archive':
                 this.initButtonTop();
                 this.initPostList();
                 this.initGaNavbar();
                 this.initGaPopularPosts();
+                this.initGaCta();
                 break;
             case 'item':
                 this.initButtonTop();
@@ -2635,12 +2694,14 @@ for(var F;D.length&&(F=D.shift());)D.length||void 0===B?E=E[F]?E[F]:E[F]={}:E[F]
                 this.initGaNavbar();
                 this.initGaShare();
                 this.initGaPopularPosts();
+                this.initGaCta();
                 break;
             case 'static_page':
                 this.initButtonTop();
                 this.initSyntaxHighlighter();
                 this.initGaNavbar();
                 this.initGaPopularPosts();
+                this.initGaCta();
                 break;
             default:
         }
@@ -2783,6 +2844,13 @@ for(var F;D.length&&(F=D.shift());)D.length||void 0===B?E=E[F]?E[F]:E[F]={}:E[F]
     
     garafu.lib.initGaPopularPosts = function () {
         $('#PopularPosts1 a.item-content').on('click', function (event) { ga('send', 'event', 'popularposts', 'click', this.href, 1); });
+    };
+
+    garafu.lib.initGaCta = function () {
+        if(BLOG_PAGE_TYPE === 'item') {
+            $('#item-post-call2action a').on('click', function (event) { ga('send', 'event', 'call to action', 'click', this.href, 1); });
+        }
+        $('#sidebar-top-call2action a').on('click', function (event) { ga('send', 'event', 'call to action', 'click', this.href, 1); });
     };
 
     // ドキュメント読み込み後のエントリーポイント
