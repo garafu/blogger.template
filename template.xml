@@ -1170,6 +1170,9 @@ html, body {
                     <li class='dropdown-item' itemprop='name'>
                       <a class='nav-item navbar-item' href='//garafu.blogspot.com/p/web-application-development.html' itemprop='url'>Webアプリケーション開発</a>
                     </li>
+                    <li class='dropdown-item' itemprop='name'>
+                      <a class='nav-item navbar-item' href='//garafu.blogspot.com/p/introduction-of-mongodb.html' itemprop='url'>MongoDB入門</a>
+                    </li>
                   </ul>
                 </li>
                 <li class='nav-item' itemprop='name'>
@@ -1220,7 +1223,10 @@ html, body {
         を扱います。
       </p>
       <p>目的ごとに記事を集めた「特集記事」は以下へ！</p>
-      <p><a href='//garafu.blogspot.com/p/web-application-development.html' class='btn btn-default'>Webアプリケーション開発 </a></p>
+      <p>
+        <a href='//garafu.blogspot.com/p/web-application-development.html' class='btn btn-default'>Webアプリケーション開発</a>
+        <a href='//garafu.blogspot.com/p/introduction-of-mongodb.html' class='btn btn-default'>MongoDB 入門</a>      
+      </p>
     </div>
   </section>
 <!-- ▲ jumbotron section ▲ -->
@@ -1889,6 +1895,7 @@ html, body {
             <h2 class="page-header">Special Pages</h2>
             <ul class='nav nav-pills nav-stacked'>
               <li class="nav-item"><a href="//garafu.blogspot.com/p/web-application-development.html">Webアプリケーション開発</a></li>
+              <li class="nav-item"><a href="//garafu.blogspot.com/p/introduction-of-mongodb.html">MongoDB入門</a></li>
             </ul>
           </div>
           <div class='widget sidemenu-top-adsense adsense sponly'>
