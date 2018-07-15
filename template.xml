@@ -1061,32 +1061,32 @@ h2.page-header {
 }
 
 .item-post-bottom-adsense {
-  min-height: 280px;
+  text-align: center;
+}
+
+.item-post-bottom-adsense .left-column,
+.item-post-bottom-adsense .right-column {
+  display: inline-block;
 }
 
 @media (min-width: 750px) {
   .sponly {
     display: none !important;
   }
-  .item-post-bottom-adsense .left-column {
-    float: left;
-    width: 50%;
-  }
+  .item-post-bottom-adsense .left-column,
   .item-post-bottom-adsense .right-column {
-    float: left;
-    width: 50%;
+    min-width: 340px;
+    min-height: 280px;
   }
 }
 @media (max-width: 750px) {
   .pconly {
     display: none !important;
   }
-  .item-post-bottom-adsense .left-column {
-    float: left;
-    width: 100%;
-  }
+  .item-post-bottom-adsense .left-column,
   .item-post-bottom-adsense .right-column {
-    display: none;
+    min-width: 300px;
+    min-height: 250px;
   }
 }
 <b:if cond='data:blog.pageType == "error_page"'>
@@ -1429,7 +1429,7 @@ html, body {
                   data-ad-format='auto'></ins>
               <script>try{(adsbygoogle = window.adsbygoogle || []).push({});}catch(e){}</script>
             </div>
-            <div class='right-column pconly'>
+            <div class='right-column'>
               <ins class='adsbygoogle'
                   style='display:block; max-width:340px; margin:0 auto;'
                   data-ad-client='ca-pub-5199605192586756'
