@@ -1084,7 +1084,8 @@ h2.page-header {
     display: none !important;
   }
   .item-post-bottom-adsense .left-column,
-  .item-post-bottom-adsense .right-column {
+  .item-post-bottom-adsense .right-column,
+  .sidemenu-top-adsense {
     min-width: 300px;
     min-height: 250px;
   }
@@ -1429,7 +1430,7 @@ html, body {
                   data-ad-format='auto'></ins>
               <script>try{(adsbygoogle = window.adsbygoogle || []).push({});}catch(e){}</script>
             </div>
-            <div class='right-column'>
+            <div class='right-column pconly'>
               <ins class='adsbygoogle'
                   style='display:block; max-width:340px; margin:0 auto;'
                   data-ad-client='ca-pub-5199605192586756'
