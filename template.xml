@@ -1090,6 +1090,13 @@ h2.page-header {
     min-height: 250px;
   }
 }
+/*---------------------------------------------------
+   Custom Advertisement
+---------------------------------------------------*/
+.custom-advertisement {
+  position: absolute;
+}
+
 <b:if cond='data:blog.pageType == "error_page"'>
 /*---------------------------------------------------
    エラーページ (error)
@@ -1430,7 +1437,7 @@ html, body {
                   data-ad-format='auto'></ins>
               <script>try{(adsbygoogle = window.adsbygoogle || []).push({});}catch(e){}</script>
             </div>
-            <div class='right-column pconly'>
+            <div class='right-column pconly' id='item-post-bottom-adsense-pconly'>
               <ins class='adsbygoogle'
                   style='display:block; max-width:340px; margin:0 auto;'
                   data-ad-client='ca-pub-5199605192586756'
@@ -1899,7 +1906,7 @@ html, body {
               <li class="nav-item"><a href="//garafu.blogspot.com/p/introduction-of-mongodb.html">MongoDB入門</a></li>
             </ul>
           </div>
-          <div class='widget sidemenu-top-adsense adsense sponly'>
+          <div class='widget sidemenu-top-adsense adsense sponly' id='sidemenu-top-adsense-sponly'>
             <ins class='adsbygoogle'
                   style='display:block'
                   data-ad-client='ca-pub-5199605192586756'
@@ -2602,6 +2609,7 @@ var SUMMARY_TARGET_LIST = SUMMARY_TARGET_LIST || [];
 var SUMMARY_TEXT_MAX_COUNT = 400;
 var BLOG_PAGE_TYPE = '<data:blog.pageType />';
 
+//<![CDATA[
 (function () {
     // 名前空間の作成
     var garafu = {};
@@ -2662,7 +2670,6 @@ var BLOG_PAGE_TYPE = '<data:blog.pageType />';
     };
 
     garafu.itm.initRelatedPosts = function () {
-//<![CDATA[
 var RELATEDPOSTS_SETTINGS = {
   MaxResults: 5,
   LoadingMessage: '<div style="text-align:center;"><i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i></div>'
@@ -2674,7 +2681,6 @@ function B(b){z();entries=b.feed.entry||[];v=v.concat(entries);x+=1;if(x>=u){var
 n.href=/https?:(\/\/[\w\-\.~#\$&\+\/:=\?%]+)/.exec(g.link[g.link.length-1].href)[1];r.appendChild(n);l.ThumbnailVisible&&(C=(m=(g.content.$t||"").match(/<img.*?src=['"](.*?)["'].*?>/))&&m[1]||l.NoThumbnailImageUrl)&&(f=document.createElement("div"),f.className="item-thumbnail",m=document.createElement("img"),m.style.width="72px",m.style.height="72px",m.src=C,f.appendChild(m),n.appendChild(f));l.TitleVisible&&(f=document.createElement("div"),f.className="item-title",f.appendChild(document.createTextNode(g.title.$t)),
 n.appendChild(f));l.SnippetVisible&&(f=document.createElement("div"),f.className="item-snippet",f.appendChild(document.createTextNode(A(g.content.$t||""))),n.appendChild(f));l=r;g=document.createElement("li");g.appendChild(l);s.appendChild(g)}else d-=1;a.splice(e,1)}a=s}else a=document.createTextNode(t.NoRelatedPostsMessage);b.appendChild(a)}}var D=["garafu","blogger","relatedposts","Main","onloading"],E=this;D[0]in E||!E.execScript||E.execScript("var "+D[0]);
 for(var F;D.length&&(F=D.shift());)D.length||void 0===B?E=E[F]?E[F]:E[F]={}:E[F]=B;})();
-//]]>
     }
 
     /**
@@ -2703,6 +2709,7 @@ for(var F;D.length&&(F=D.shift());)D.length||void 0===B?E=E[F]?E[F]:E[F]={}:E[F]
                 this.initGaShare();
                 this.initGaPopularPosts();
                 this.initGaCta();
+                this.initAds();
                 break;
             case 'static_page':
                 this.initButtonTop();
@@ -2861,6 +2868,79 @@ for(var F;D.length&&(F=D.shift());)D.length||void 0===B?E=E[F]?E[F]:E[F]={}:E[F]
         $('#sidebar-top-call2action a').on('click', function (event) { ga('send', 'event', 'call to action', 'click', this.href, 1); });
     };
 
+    garafu.lib.initAds = function () {
+        var SETTINGS = {
+          default: {
+            appearance: 40        // 0-100
+          },
+          ads: [{
+            image: {
+              'rectangle-m': 'https://1.bp.blogspot.com/-pqHG44WsrCk/W0wjdO79tzI/AAAAAAAAEPk/lsgipevBeiQg5ITq03NluhAEESSSkj31QCLcBGAs/s1600/udemy-NodeExpressWebApplicationDevelopment-M.jpg',    // 300x250
+              'rectangle-l': 'https://3.bp.blogspot.com/-4IN2mp6zzwQ/W0wjdQAsSTI/AAAAAAAAEPo/4F1AcBr_f-Uc1j2dC5f2BjXcCxrK1zJVACLcBGAs/s1600/udemy-NodeExpressWebApplicationDevelopment-L.jpg'     // 336x280
+            },
+            link: 'https://www.udemy.com/web-application-with-nodejs-express/?couponCode=QICU-6L1X-IPXU-FNBZ'
+          }],
+          targets: [{
+            id: 'item-post-bottom-adsense-pconly'
+          }, {
+            id: 'sidemenu-top-adsense-sponly',
+            appearance: 80
+          }]
+        };
+
+        var isOverwrite = function (rate) {
+            return (Math.random() * 100.0) < rate;
+        };
+
+        var getRandomAd = function () {
+            var ads = SETTINGS.ads;
+            var n = Math.floor(Math.random() * ads.length);
+            return ads[n];
+        };
+
+        var measureImageSize = function (id) {
+            var $target = $(document.getElementById(id));
+            var width = $target.width();
+            var height = $target.height();
+
+            if (width < 336 && height < 280) {
+                return 'rectangle-m';
+            } else {
+                return 'rectangle-l';
+            }
+        };
+
+        var createAdElement = function (ad, size) {
+            var frame = document.createElement('div');
+            var anchor = document.createElement('a');
+            var image = document.createElement('img');
+
+            image.src = ad.image[size];
+            anchor.href = ad.link;
+            anchor.target = '_blank';
+            anchor.appendChild(image);
+            frame.appendChild(anchor);
+            frame.className = 'custom-advertisement';
+
+            return frame;
+        };
+
+        var main = function () {
+            for (var target of SETTINGS.targets) {
+                var appearance = (Number.isInteger(target.appearance) && target.appearance) || SETTINGS.default.appearance;
+                if (isOverwrite(appearance) === false) {
+                    continue;
+                }
+                var ad = getRandomAd();
+                var size = measureImageSize(target.id);
+                var element = createAdElement(ad, size);
+                $(document.getElementById(target.id)).empty().append(element);
+            }
+        };
+
+        main();
+    };
+
     // ドキュメント読み込み後のエントリーポイント
     $(document).ready(function (event) {
         garafu.nav.init();
@@ -2869,6 +2949,7 @@ for(var F;D.length&&(F=D.shift());)D.length||void 0===B?E=E[F]?E[F]:E[F]={}:E[F]
         garafu.lib.init();
     });
 })();
+//]]>
   </script>
 <!-- ▲ script area ▲ -->
 </body>
