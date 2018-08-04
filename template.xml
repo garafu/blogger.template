@@ -2875,8 +2875,8 @@ for(var F;D.length&&(F=D.shift());)D.length||void 0===B?E=E[F]?E[F]:E[F]={}:E[F]
           },
           ads: [{
             image: {
-              'rectangle-m': 'https://1.bp.blogspot.com/-pqHG44WsrCk/W0wjdO79tzI/AAAAAAAAEPk/lsgipevBeiQg5ITq03NluhAEESSSkj31QCLcBGAs/s1600/udemy-NodeExpressWebApplicationDevelopment-M.jpg',    // 300x250
-              'rectangle-l': 'https://3.bp.blogspot.com/-4IN2mp6zzwQ/W0wjdQAsSTI/AAAAAAAAEPo/4F1AcBr_f-Uc1j2dC5f2BjXcCxrK1zJVACLcBGAs/s1600/udemy-NodeExpressWebApplicationDevelopment-L.jpg'     // 336x280
+              'rectangle-m': 'https://2.bp.blogspot.com/-DbRb94_Mm3o/W2Uqm7oIfCI/AAAAAAAAESk/-CZSnwSAvFQ5MJPk3ZEKXJvv3GCTi9tqwCLcBGAs/s1600/udemy-WebApplicationDevelopment_with_Nodejs%252BExpress-02-M.png',    // 300x250
+              'rectangle-l': 'https://1.bp.blogspot.com/-DikTAAjr198/W2Uqm3vglWI/AAAAAAAAESg/kWW1cDgObYkCcLZuJ7X-FGhLLdscnW8vQCLcBGAs/s1600/udemy-WebApplicationDevelopment_with_Nodejs%252BExpress-02-L.png'     // 336x280
             },
             link: 'https://www.udemy.com/web-application-with-nodejs-express/?couponCode=QICU-6L1X-IPXU-FNBZ'
           }],
