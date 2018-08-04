@@ -1074,7 +1074,8 @@ h2.page-header {
     display: none !important;
   }
   .item-post-bottom-adsense .left-column,
-  .item-post-bottom-adsense .right-column {
+  .item-post-bottom-adsense .right-column,
+  .sidemenu-fixed-adsense {
     min-width: 340px;
     min-height: 280px;
   }
@@ -1085,6 +1086,7 @@ h2.page-header {
   }
   .item-post-bottom-adsense .left-column,
   .item-post-bottom-adsense .right-column,
+  .sidemenu-fixed-adsense,
   .sidemenu-top-adsense {
     min-width: 300px;
     min-height: 250px;
@@ -1093,8 +1095,10 @@ h2.page-header {
 /*---------------------------------------------------
    Custom Advertisement
 ---------------------------------------------------*/
-.custom-advertisement {
-  position: absolute;
+@media (max-width: 750px) {
+  .custom-advertisement {
+    text-align: center;
+  }
 }
 
 <b:if cond='data:blog.pageType == "error_page"'>
@@ -1965,6 +1969,8 @@ html, body {
                  data-ad-slot='5836422220'
                  data-ad-format='auto'></ins>
             <script>try{(adsbygoogle = window.adsbygoogle || []).push({});}catch(e){}</script>
+          </div>
+          <div id='sidemenu-fixed-adsense' clas='widget sidemenu-fixed-adsense adsense'>
           </div>
         </div>
       </aside>
@@ -2875,16 +2881,14 @@ for(var F;D.length&&(F=D.shift());)D.length||void 0===B?E=E[F]?E[F]:E[F]={}:E[F]
           },
           ads: [{
             image: {
-              'rectangle-m': 'https://2.bp.blogspot.com/-DbRb94_Mm3o/W2Uqm7oIfCI/AAAAAAAAESk/-CZSnwSAvFQ5MJPk3ZEKXJvv3GCTi9tqwCLcBGAs/s1600/udemy-WebApplicationDevelopment_with_Nodejs%252BExpress-02-M.png',    // 300x250
-              'rectangle-l': 'https://1.bp.blogspot.com/-DikTAAjr198/W2Uqm3vglWI/AAAAAAAAESg/kWW1cDgObYkCcLZuJ7X-FGhLLdscnW8vQCLcBGAs/s1600/udemy-WebApplicationDevelopment_with_Nodejs%252BExpress-02-L.png'     // 336x280
+              'rectangle-m': 'https://3.bp.blogspot.com/-lYtU7uoLzKQ/W2U04OVlr9I/AAAAAAAAESw/CWRzuLQEvOw40U6fQuBmx8DanK7cz1liACLcBGAs/s1600/udemy-WebApplicationDevelopment_with_Nodejs%252BExpress-02-M.png',    // 300x250
+              'rectangle-l': 'https://4.bp.blogspot.com/-0capKr-rI_8/W2U04TGkH1I/AAAAAAAAES0/3f-2by3OcRoZG7UbLviEMDrfS7utwwJBQCLcBGAs/s1600/udemy-WebApplicationDevelopment_with_Nodejs%252BExpress-02-L.png'     // 336x280
             },
             link: 'https://www.udemy.com/web-application-with-nodejs-express/?couponCode=QICU-6L1X-IPXU-FNBZ'
           }],
           targets: [{
-            id: 'item-post-bottom-adsense-pconly'
-          }, {
-            id: 'sidemenu-top-adsense-sponly',
-            appearance: 80
+            id: 'sidemenu-fixed-adsense',
+            appearance: 100
           }]
         };
 
