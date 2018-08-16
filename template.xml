@@ -1849,36 +1849,6 @@ html, body {
 <!-- ▼ sidebar section ▼ -->
       <aside class='col-xs-12 col-sm-12 col-lg-4'>
         <div class='col-xs-12 col-sm-6 col-lg-12'>
-<!--
-          <div class='panel panel-default' style='margin-top:40px'>
-            <div class='panel-heading'>
-              <h2 style='font-size: 24px'>Social Links</h2>
-            </div>
-            <div class='panel-body'>
-              <p>
-                <small>このブログの新着記事情報は以下の Facebookページ か Twitter をフォローすると受け取れます。</small>
-              </p>
-              <ul id='sidebar-top-call2action' class='nav nav-pills nav-stacked'>
-                <li class="nav-item">
-                  <a href='//www.facebook.com/galifeblog' target='_blank'>
-                    <i class='fa fa-facebook fa-fw'></i>
-                    <span>
-                      Facebook ページ <i class='fa fa-external-link'></i>
-                    </span>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href='//twitter.com/galifeblog' target='_blank'>
-                    <i class='fa fa-twitter fa-fw'></i>
-                    <span>
-                      twitter <i class='fa fa-external-link'></i>
-                    </span>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
--->
           <div class="widget SocialLinks">
             <h2 class="page-header">Social Links</h2>
             <p>
@@ -1917,6 +1887,10 @@ html, body {
                   data-ad-slot='1891757021'
                   data-ad-format='auto'></ins>
             <script>try{(adsbygoogle = window.adsbygoogle || []).push({});}catch(e){}</script>
+          </div>
+          <div class='widget sidemenu-fixed-adsense adsense'>
+            <h2 class='page-header'>Online Course</h2>
+            <div id='sidemenu-fixed-adsense'></div>
           </div>
           <b:if cond='data:blog.pageType == "item"'>
             <div class="widget RelatedPosts">
@@ -1969,8 +1943,6 @@ html, body {
                  data-ad-slot='5836422220'
                  data-ad-format='auto'></ins>
             <script>try{(adsbygoogle = window.adsbygoogle || []).push({});}catch(e){}</script>
-          </div>
-          <div id='sidemenu-fixed-adsense' clas='widget sidemenu-fixed-adsense adsense'>
           </div>
         </div>
       </aside>
@@ -2700,6 +2672,7 @@ for(var F;D.length&&(F=D.shift());)D.length||void 0===B?E=E[F]?E[F]:E[F]={}:E[F]
                 this.initGaNavbar();
                 this.initGaPopularPosts();
                 this.initGaCta();
+                this.initAds();
                 break;
             case 'archive':
                 this.initButtonTop();
@@ -2707,6 +2680,7 @@ for(var F;D.length&&(F=D.shift());)D.length||void 0===B?E=E[F]?E[F]:E[F]={}:E[F]
                 this.initGaNavbar();
                 this.initGaPopularPosts();
                 this.initGaCta();
+                this.initAds();
                 break;
             case 'item':
                 this.initButtonTop();
@@ -2723,6 +2697,7 @@ for(var F;D.length&&(F=D.shift());)D.length||void 0===B?E=E[F]?E[F]:E[F]={}:E[F]
                 this.initGaNavbar();
                 this.initGaPopularPosts();
                 this.initGaCta();
+                this.initAds();
                 break;
             default:
         }
