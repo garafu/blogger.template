@@ -2860,6 +2860,12 @@ for(var F;D.length&&(F=D.shift());)D.length||void 0===B?E=E[F]?E[F]:E[F]={}:E[F]
               'rectangle-l': 'https://4.bp.blogspot.com/-0capKr-rI_8/W2U04TGkH1I/AAAAAAAAES0/3f-2by3OcRoZG7UbLviEMDrfS7utwwJBQCLcBGAs/s1600/udemy-WebApplicationDevelopment_with_Nodejs%252BExpress-02-L.png'     // 336x280
             },
             link: 'https://www.udemy.com/web-application-with-nodejs-express/?couponCode=QICU-6L1X-IPXU-FNBZ'
+          }, {
+            image: {
+              'rectangle-m': 'https://4.bp.blogspot.com/-pmGmpuaPWIM/W6dDEH3g3mI/AAAAAAAAEUA/9OrEL_zF7toEwICSYGTqNvvcBaIYsgC1gCLcBGAs/s1600/udemy-MongoDB-M.png',    // 300x250
+              'rectangle-l': 'https://4.bp.blogspot.com/-IWWLSzNsV_M/W6dDEIvmenI/AAAAAAAAET8/lyicKCObzPUdQkAFKIqNFRg9VolbZEy-wCLcBGAs/s1600/udemy-MongoDB-L.png'     // 336x280
+            },
+            link: 'https://www.udemy.com/introductory-mongodb/?couponCode=D8J4-Q5N9-D4BF-X9WA'
           }],
           targets: [{
             id: 'sidemenu-fixed-adsense',
