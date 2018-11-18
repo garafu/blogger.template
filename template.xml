@@ -1010,6 +1010,22 @@ h4.strong {
   font-weight: bold;
 }
 
+.marker-red {
+  background: linear-gradient(transparent 50%, #ff9999 0%);
+}
+
+.marker-yellow {
+  background:linear-gradient(transparent 50%, #ffff66 0%);
+}
+
+.marker-green {
+  background:linear-gradient(transparent 50%, #99ff99 0%);
+}
+
+.marker-blue {
+  background:linear-gradient(transparent 50%, #66ccff 0%);
+}
+
 .download {
   display: inline-block;
   height: 34px;
