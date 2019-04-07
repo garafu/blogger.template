@@ -506,9 +506,9 @@ div.header {
 ---------------------------------------------------*/
 /* Blogger style overwrite */
 .jumbotron {
-  color: #333;
+  color: #fff;
   -webkit-text-stroke: 0.1px #efefef;
-  text-stroke: 0.1px #efefef;
+  text-stroke: 0.2px #aaa;
   font-weight: bold;
   position: relative;
   background: transparent;
