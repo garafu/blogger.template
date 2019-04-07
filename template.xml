@@ -14,8 +14,8 @@
     </b:if>
   </title>
   &lt;style type="text/css"&gt;&lt;!-- /*<b:skin><![CDATA[*/]]></b:skin>
-  <link href='//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' rel='stylesheet' type='text/css' />
-  <link href='//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' rel='stylesheet' />
+  <link href='//stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' rel='stylesheet' type='text/css' />
+  <link href='//stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' rel='stylesheet' />
   <style type='text/css'>
 /* shCore.css */
 .syntaxhighlighter{border:1px solid #ddd}.syntaxhighlighter a,.syntaxhighlighter code,.syntaxhighlighter div,.syntaxhighlighter table,.syntaxhighlighter table caption,.syntaxhighlighter table tbody,.syntaxhighlighter table td,.syntaxhighlighter table thead,.syntaxhighlighter table tr,.syntaxhighlighter textarea{-moz-border-radius:0;-webkit-border-radius:0;background:0;border:0;bottom:auto;float:none;height:20px;left:auto;line-height:20px;margin:0;outline:0;overflow:visible;padding:0;position:static;right:auto;text-align:left;top:auto;vertical-align:baseline;width:auto;box-sizing:content-box;font-size:14px}.syntaxhighlighter{width:100%;margin:1em 0;position:relative;overflow:auto;font-size:1em}.syntaxhighlighter.source{overflow:hidden}.syntaxhighlighter .bold{font-weight:700}.syntaxhighlighter .italic{font-style:italic}.syntaxhighlighter .line{white-space:pre}.syntaxhighlighter table{width:100%;margin:10px 0}.syntaxhighlighter table caption{text-align:left;padding:.5em 0 .5em 1em}.syntaxhighlighter table td.code{width:100%}.syntaxhighlighter table td.code .container{position:relative;height:auto}.syntaxhighlighter table td.code .container textarea{box-sizing:border-box;position:absolute;left:0;top:0;width:100%;height:100%;border:0;background:#fff;padding-left:1em;overflow:hidden;white-space:pre}.syntaxhighlighter table td.gutter .line{text-align:right;padding:0 .5em 0 1em}.syntaxhighlighter table td.code .line{padding:0 1em}.syntaxhighlighter.nogutter td.code .container textarea,.syntaxhighlighter.nogutter td.code .line{padding-left:0}.syntaxhighlighter.show{display:block}.syntaxhighlighter.collapsed table{display:none}.syntaxhighlighter.collapsed .toolbar{margin:10px 0;padding:0 14px;font-size:1em;position:static;width:auto;height:auto;display:block}.syntaxhighlighter.collapsed .toolbar span{display:inline;margin-right:1em}.syntaxhighlighter.collapsed .toolbar span a{padding:0;display:none}.syntaxhighlighter.collapsed .toolbar span a.expandSource:before{font-family:FontAwesome;content:"\f196";margin-right:10px}.syntaxhighlighter.collapsed .toolbar span a.expandSource{display:inline-block}.syntaxhighlighter .toolbar{position:absolute;right:1px;top:1px;width:11px;height:11px;font-size:10px;z-index:1;display:none}.syntaxhighlighter .toolbar span.title{display:inline}.syntaxhighlighter .toolbar a{display:block;text-align:center;text-decoration:none;padding-top:1px}.syntaxhighlighter .toolbar a.expandSource{display:none}.syntaxhighlighter.ie{font-size:.9em;padding:1px 0}.syntaxhighlighter.ie .toolbar{line-height:8px}.syntaxhighlighter.ie .toolbar a{padding-top:0}
@@ -28,6 +28,7 @@
 ---------------------------------------------------*/
 body {
   font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  padding-top: 6rem;  /* ヘッダの高さ = 6rem */
 }
 
 img {
@@ -61,68 +62,180 @@ kbd {
   border-color: #ccc;
 }
 
+:target:before {
+   content: "";
+   display: block;
+   height: 6rem;      /* ヘッダの高さ = 6rem */
+   margin: -6rem 0 0; /* ヘッダの高さ = 6rem */
+}
+
+/* ---------------------------
+  Bootstrap 3 -> 4 への移行
+--------------------------- */
+.page-header {
+  padding-bottom: 1rem;
+  margin: 2rem 0 1rem;
+  border-bottom: 1px solid #eee;
+}
+
+a {
+  color: #337ab7;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #23527c;
+  text-decoration: underline;
+}
+
+pre {
+  display: block;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  color: #333;
+  word-break: break-all;
+  word-wrap: break-word;
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.dl-horizontal dt {
+  float: left;
+  clear: left;
+  width: 10rem;
+  text-align: right;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: wrap;
+}
+
+.dl-horizontal dd {
+  margin-left: 11.3rem;
+}
+
+.btn-default {
+}
+
+.pager {
+  padding: 2rem 0;
+  margin: 2rem 0;
+  text-align: center;
+  list-style: none;
+}
+
+.pager li {
+  display: inline;
+}
+
+.pager a:hover {
+  background-color: #efefef;
+  text-decoration: none;
+}
+
+.pager li>a, .pager li>span {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 15px;
+}
+
+.pager .next>a, .pager .next>span {
+  float: right;
+}
+
+.pager .previous>a, .pager .previous>span {
+  float: left;
+}
+
+.panel {
+  margin-bottom: 1rem;
+  background-color: #fff;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+
+.panel-default {
+  border-color: #ddd;
+}
+
+.panel-heading {
+  padding: 0.5rem 0.8rem;
+  border-bottom: 1px solid transparent;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+
+.panel-default > .panel-heading {
+  color: #333;
+  background-color: #f5f5f5;
+  border-color: #ddd;
+}
+
+.panel-body {
+  padding: 0.8rem;
+}
+
+.table .col-sm-1 { width: 8.33333333% }
+.table .col-sm-2 { width: 16.66666667% }
+.table .col-sm-3 { width: 25% }
+.table .col-sm-4 { width: 33.333333% }
+.table .col-sm-5 { width: 41.66666667% }
+.table .col-sm-6 { width: 50% }
+.table .col-sm-7 { width: 58.33333333% }
+.table .col-sm-8 { width: 66.666667% }
+.table .col-sm-9 { width: 75% }
+.table .col-sm-10 { width: 83.33333333% }
+.table .col-sm-11 { width: 91.66666667% }
+.table .col-sm-12 { width: 100% }
+
+.table .active {
+  background-color: #f5f5f5;
+}
+
+.table-condensed th,
+.table-condensed td,
+.table-condensed pre {
+  padding: 0.3rem;
+}
+
 /*---------------------------------------------------
     共通ヘッダー (header-xxx)
 ---------------------------------------------------*/
-/* Bootstrap style overwrite */
 body.navbar-fixed-in {
   padding-top: 50px;
 }
 
+div.header {
+  width: 100%;
+}
+
 .navbar {
-  margin-bottom: 0;
-  /*background-color: #2c3e50;*/
 }
 
 .navbar a {
   cursor: pointer;
 }
 
-.navbar-brand {
+.navbar .navbar-brand {
   margin-top: 0;
   margin-bottom: 0;
-  padding: 8px 15px;
-  line-height: 34px;
+  line-height: 2.3rem;
 }
 
-.navbar-brand h1 {
+.navbar .navbar-brand h1 {
   margin-top: 0;
   margin-bottom: 0;
-  font-size: 34px;
+  font-size: 2.3rem;
 }
 
-.navbar-default {
-  background-color: #333333;
-  border-color: transparent;
+.navbar .nav-item {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
 }
-
-.navbar-default a.navbar-brand,
-.navbar-default .navbar-nav>li>a {
-  color: #dddddd;
-  text-decoration: none;
-}
-
-.navbar-default a.navbar-brand:hover,
-.navbar-default .navbar-nav>li>a:hover {
-  color: #ffffff;
-}
-
-/*.navbar-container {
-  position: relative;
-}
-
-.navbar-search {
-  /*position: absolute;* /
-  top: 0;
-  right: 0;
-  margin: 0 15px;
-}*/
-
-/*@media (max-width: 991px) {
-  .navbar-search-form {
-    display: none;
-  }
-}*/
 
 /* xs size */
 @media (max-width: 767px) {
@@ -348,67 +461,44 @@ body.navbar-fixed-in {
     共通サイドメニュー
 ---------------------------------------------------*/
 
-/* related posts
---------------------------*/
-.RelatedPosts {
+.sidemenu a:hover {
+  background-color: #efefef;
 }
 
-.RelatedPosts i {
-  text-align: center;
-}
-
-.RelatedPosts ul {
+.sidemenu-relatedposts ul,
+.sidemenu-popularposts ul {
   list-style-type: none;
   margin: 0 !important;
   padding: 0;
 }
 
-.RelatedPosts .item-content {
+.sidemenu-relatedposts .item-content,
+.sidemenu-popularposts .item-content {
   margin-top: 2px;
 }
 
-.RelatedPosts .item-content>a {
+.sidemenu-relatedposts .item-content>a,
+.sidemenu-popularposts .item-content>a {
   padding: 10px 15px;
   border-radius: 4px;
   text-decoration: none;
   display: block;
 }
 
-.RelatedPosts .item-content>a:hover {
-  background-color: #eee;
-}
-
-.RelatedPosts .item-thumbnail {
+.sidemenu-relatedposts .item-thumbnail,
+.sidemenu-popularposts .item-thumbnail {
   float: left;
   margin: 0 5px 5px 0;
 }
 
-.RelatedPosts .item-title {
+.sidemenu-relatedposts .item-title,
+.sidemenu-popularposts .item-title {
   font-weight: bold;
 }
 
-.RelatedPosts img {
+.sidemenu-relatedposts img,
+.sidemenu-popularposts img {
   padding: 3px;
-}
-
-/* popular posts
---------------------------*/
-
-.PopularPosts .item-content {
-  background: #fff;
-  margin: 0 0 20px;
-  padding: 5px 10px;
-  position: relative;
-  border-radius: 4px;
-}
-
-.PopularPosts .item-thumbnail {
-  float: left;
-  margin: 0 5px 5px 0;
-}
-
-.PopularPosts .item-title {
-  font-weight: bold;
 }
 
 /*---------------------------------------------------
@@ -416,9 +506,13 @@ body.navbar-fixed-in {
 ---------------------------------------------------*/
 /* Blogger style overwrite */
 .jumbotron {
-  color: #efefef;
+  color: #333;
+  -webkit-text-stroke: 0.1px #efefef;
+  text-stroke: 0.1px #efefef;
+  font-weight: bold;
   position: relative;
   background: transparent;
+  margin-top: -2rem;
 }
 
 .jumbotron .bg-container {
@@ -431,17 +525,16 @@ body.navbar-fixed-in {
 }
 
 .jumbotron .bg-image {
-  background-image: url("//2.bp.blogspot.com/-a0sVOUkRCE4/WGXPo2UvkXI/AAAAAAAADt8/6m3lwX7KQ5g5Gi2t0VJpwhExkFeRkOHbQCLcB/s1600/jumbotron-wood.jpg");
-  background-size: 100% auto;
-  position: absolute;
-  top: 0;
-  left: 0;
+  background-image: url("//1.bp.blogspot.com/-ObNZHY3kpgk/XKjCiHO2s0I/AAAAAAAAEdw/bNTz66IR3OY4LJ-mwOtal6USXZxlYYQkwCLcBGAs/s1600/beautiful-cold-dawn.jpg");
+  background-size: cover;
+  background-position-x: 50%;
+  background-position-y: 20%;
   width: 100%;
   height: 100%;
 }
 
 .jumbotron .bg-cover {
-  background-color: #000;
+  background-color: #efefef;
   opacity: 0.4;
   position: absolute;
   top: 0;
@@ -1171,72 +1264,66 @@ html, body {
   <meta expr:content='data:blog.title' itemprop='name' />
   <meta content='garafu' itemprop='author' />
 
-  <header class='navbar navbar-default navbar-inverse' id='navbar' role='navigation' itemscope='itemscope' itemtype='https://schema.org/SiteNavigationElement'>
-    <div class='container navbar-container'>
+  <header class='navbar navbar-expand-lg navbar-light bg-light fixed-top' id='navbar' role='navigation' itemscope='itemscope' itemtype='https://schema.org/SiteNavigationElement'>
+    <div class='container'>
 <!-- ▼ header section ▼ -->
       <b:section class='header' id='header' maxwidgets='1' showaddelement='no'>
         <b:widget id='Header1' locked='true' title='' type='Header'>
-          <!-- header section -main- -->
           <b:includable id='main' var='top'>
-            <div class='navbar-header'>
-              <button class='btn btn-outline-default navbar-btn visible-xs header-btn-toggle-menu' id='btnNavbarToggleMenu'>
-                <i class='fa fa-bars' aria-hidden='true'></i>
-              </button>
-              <a href='/' class='navbar-brand'>
-                <h1><data:blog.title /></h1>
-              </a>
-            </div>
-
-            <div class='navbar-menu' id='navbar-menu'>
-              <ul class='nav navbar-nav' id='navbar-menu-list'>
-                <li class='nav-item' itemprop='name'>
-                  <a href='//garafu.blogspot.com/p/blog-page.html' class='navbar-item' itemprop='url'>記事一覧</a>
-                </li>
-                <li class='nav-item dropdown' itemprop='name'>
-                  <a class='dropdown-toggle' id='navbar-menu-dropdown-sp' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>特集記事<span class='caret'></span></a>
-                  <ul class='dropdown-menu' aria-labelledby='navbar-menu-dropdown-sp' itemscope='itemscope' itemtype='https://schema.org/SiteNavigationElement'>
-                    <li class='dropdown-item' itemprop='name'>
-                      <a class='nav-item navbar-item' href='//garafu.blogspot.com/p/web-application-development.html' itemprop='url'>Webアプリケーション開発</a>
-                    </li>
-                    <li class='dropdown-item' itemprop='name'>
-                      <a class='nav-item navbar-item' href='//garafu.blogspot.com/p/introduction-of-mongodb.html' itemprop='url'>MongoDB入門</a>
-                    </li>
-                  </ul>
-                </li>
-                <li class='nav-item' itemprop='name'>
-                  <a href='//garafu.blogspot.com/p/product.html' class='navbar-item' itemprop='url'>製品一覧</a>
-                </li>
-                <li class='nav-item' itemprop='name'>
-                  <a href='//garafu.blogspot.com/p/about.html' class='navbar-item' itemprop='url'>このブログについて</a>
-                </li>
-              </ul>
-
-              <div class='nav navbar-nav navbar-right visible-sm header-btn-toggle-search'>
-                <a class='btn btn-outline-default navbar-btn' id='btnNavbarToggleSearch'>
-                  <i class='fa fa-search' aria-hidden='true'></i>
+            <div class='d-flex flex-column flex-lg-row'>
+              <div class='d-flex justify-content-between'>
+                <a class='navbar-brand' href='/'>
+                  <h1><data:blog.title /></h1>
                 </a>
+
+                <button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbar-menu' aria-controls='navbar-menu' aria-expanded='false' aria-label='Toggle navigation'>
+                  <span class='navbar-toggler-icon'></span>
+                </button>
               </div>
 
-              <form action='/search' class='nav navbar-nav navbar-form navbar-right' method='get' role='search' id='frmNavbarSearch'>
-                <div class='form-group navbar-form-group'>
+              <div class='collapse navbar-collapse' id='navbar-menu'>
+                <ul class='navbar-nav mr-auto'>
+                  <li class='nav-item' itemprop='name'>
+                    <a class='nav-link' itemprop='url' href='//garafu.blogspot.com/p/blog-page.html'>記事一覧</a>
+                  </li>
+                  <li class='nav-item dropdown'>
+                    <a class='nav-link dropdown-toggle' href='#' id='navbarDropdown' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>特集記事</a>
+                    <div class='dropdown-menu' aria-labelledby='navbarDropdown'>
+                      <span itemprop='name'>
+                        <a class='dropdown-item' href='//garafu.blogspot.com/p/web-application-development.html' itemprop='url'>Webアプリケーション開発</a>
+                      </span>
+                      <span itemprop='name'>
+                        <a class='dropdown-item' href='//garafu.blogspot.com/p/introduction-of-mongodb.html' itemprop='url'>MongoDB入門</a>
+                      </span>
+                    </div>
+                  </li>
+                  <li class='nav-item' itemprop='name'>
+                    <a class='nav-link' itemprop='url' href='//garafu.blogspot.com/p/product.html'>製品一覧</a>
+                  </li>
+                  <li class='nav-item' itemprop='name'>
+                    <a class='nav-link' itemprop='url' href='//garafu.blogspot.com/p/about.html'>このブログについて</a>
+                  </li>
+                </ul>
+
+                <form class='form-inline my-2 my-lg-0 d-flex align-items-center' action='/search' method='GET' role='search' id='frmNavbarSearch'>
                   <div class='input-group'>
-                    <input id='s' name='q' type='text' class='form-control' placeholder='ブログ内を検索' />
-                    <div class='input-group-btn'>
-                      <button class='btn btn-default' type='submit'>
-                        <i class='fa fa-search' aria-hidden='true'></i>
-                      </button>
+                    <input class='form-control' id='s' name='q' type='text' placeholder='ブログ内を検索' />
+                    <div class='input-group-append'>
+                      <button class='btn btn-outline-dark' type='submit'><i class='fa fa-search' aria-hidden='true'></i></button>
                     </div>
                   </div>
-                </div>
-              </form>
+                </form>
+              </div>
             </div>
           </b:includable>
-          <!-- header section -main- -->
         </b:widget>
       </b:section>
 <!-- ▲ header section ▲ -->
     </div>
   </header>
+
+
+
 
 <b:if cond='data:blog.pageType == "index" and !data:blog.searchLabel and !data:blog.searchQuery'>
 <!-- ▼ jumbotron section ▼ -->
@@ -1252,8 +1339,8 @@ html, body {
       </p>
       <p>目的ごとに記事を集めた「特集記事」は以下へ！</p>
       <p>
-        <a href='//garafu.blogspot.com/p/web-application-development.html' class='btn btn-default'>Webアプリケーション開発</a>
-        <a href='//garafu.blogspot.com/p/introduction-of-mongodb.html' class='btn btn-default'>MongoDB 入門</a>      
+        <a href='//garafu.blogspot.com/p/web-application-development.html' class='btn btn-light'>Webアプリケーション開発</a>
+        <a href='//garafu.blogspot.com/p/introduction-of-mongodb.html' class='btn btn-light'>MongoDB 入門</a>      
       </p>
     </div>
   </section>
@@ -1557,17 +1644,17 @@ html, body {
         このブログに興味を持っていただけた方は、
         ぜひ 「Facebookページ に いいね！」または 「Twitter の フォロー」 お願いします！！
       </p>
-      <ul id='item-post-call2action' class='nav nav-pills nav-stacked'>
-        <li class="nav-item">
-          <a href='//www.facebook.com/galifeblog' target='_blank'>
+      <ul id='item-post-call2action' class='nav nav-pills flex-column'>
+        <li class='nav-item'>
+          <a href='//www.facebook.com/galifeblog' target='_blank' class='nav-link'>
             <i class='fa fa-facebook fa-fw'></i>
             <span>
               Facebook ページ <i class='fa fa-external-link'></i>
             </span>
           </a>
         </li>
-        <li class="nav-item">
-          <a href='//twitter.com/galifeblog' target='_blank'>
+        <li class='nav-item'>
+          <a href='//twitter.com/galifeblog' target='_blank' class='nav-link'>
             <i class='fa fa-twitter fa-fw'></i>
             <span>
               twitter <i class='fa fa-external-link'></i>
@@ -1863,16 +1950,16 @@ html, body {
       </section>
 <!-- ▲ main section ▲ -->
 <!-- ▼ sidebar section ▼ -->
-      <aside class='col-xs-12 col-sm-12 col-lg-4'>
+      <aside class='col-xs-12 col-sm-12 col-lg-4 sidemenu'>
         <div class='col-xs-12 col-sm-6 col-lg-12'>
           <div class="widget SocialLinks">
             <h2 class="page-header">Social Links</h2>
             <p>
               <small>このブログの新着記事情報は以下の Facebookページ か Twitter をフォローすると受け取れます。</small>
             </p>
-            <ul id='sidebar-top-call2action' class='nav nav-pills nav-stacked'>
+            <ul id='sidebar-top-call2action' class='nav nav-pills flex-column'>
               <li class="nav-item">
-                <a href='//www.facebook.com/galifeblog' target='_blank'>
+                <a href='//www.facebook.com/galifeblog' target='_blank' class='nav-link'>
                   <i class='fa fa-facebook fa-fw'></i>
                   <span>
                     Facebook ページ <i class='fa fa-external-link'></i>
@@ -1880,7 +1967,7 @@ html, body {
                 </a>
               </li>
               <li class="nav-item">
-                <a href='//twitter.com/galifeblog' target='_blank'>
+                <a href='//twitter.com/galifeblog' target='_blank' class='nav-link'>
                   <i class='fa fa-twitter fa-fw'></i>
                   <span>
                     twitter <i class='fa fa-external-link'></i>
@@ -1891,9 +1978,9 @@ html, body {
           </div>
           <div class="widget SpecialPages">
             <h2 class="page-header">Special Pages</h2>
-            <ul class='nav nav-pills nav-stacked'>
-              <li class="nav-item"><a href="//garafu.blogspot.com/p/web-application-development.html">Webアプリケーション開発</a></li>
-              <li class="nav-item"><a href="//garafu.blogspot.com/p/introduction-of-mongodb.html">MongoDB入門</a></li>
+            <ul class='nav nav-pills flex-column'>
+              <li class="nav-item"><a href="//garafu.blogspot.com/p/web-application-development.html" class='nav-link'>Webアプリケーション開発</a></li>
+              <li class="nav-item"><a href="//garafu.blogspot.com/p/introduction-of-mongodb.html" class='nav-link'>MongoDB入門</a></li>
             </ul>
           </div>
           <div class='widget sidemenu-top-adsense adsense sponly' id='sidemenu-top-adsense-sponly'>
@@ -1904,14 +1991,16 @@ html, body {
                   data-ad-format='auto'></ins>
             <script>try{(adsbygoogle = window.adsbygoogle || []).push({});}catch(e){}</script>
           </div>
+<!--
           <div class='widget sidemenu-fixed-adsense adsense'>
             <h2 class='page-header'>Online Course</h2>
             <div id='sidemenu-fixed-adsense'></div>
           </div>
+-->
           <b:if cond='data:blog.pageType == "item"'>
             <div class="widget RelatedPosts">
               <h2 class='page-header'>Related Posts</h2>
-              <div id='blogger.relatedposts.output'></div>
+              <div id='blogger.relatedposts.output' class='sidemenu-relatedposts'></div>
             </div>
           </b:if>
         </div>
@@ -1920,28 +2009,32 @@ html, body {
             <b:widget id='PopularPosts1' locked='false' title='Popular Posts' type='PopularPosts' version='1' visible='true'>
               <b:includable id='main'>
                 <h2 class='popularposts-title page-header'><data:title /></h2>
-                <ul class='popularposts-list nav nav-pills nav-stacked'>
-                  <b:loop var='post' values='data:posts'>
-                    <li class='popularposts-item'>
-                      <b:include name='popularposts-post' data='post' />
-                    </li>
-                  </b:loop>
-                </ul>
+                <div id='blogger.popularposts.output' class='sidemenu-popularposts'>
+                  <ul>
+                    <b:loop var='post' values='data:posts'>
+                      <li>
+                        <b:include name='popularposts-post' data='post' />
+                      </li>
+                    </b:loop>
+                  </ul>
+                </div>
               </b:includable>
               <b:includable id='popularposts-post' var='post'>
-                <a class='item-content' expr:href='data:post.href' expr:title='data:post.title'>
-                  <b:if cond='data:post.thumbnail'>
-                    <div class='item-thumbnail'>
-                      <img alt='' border='0' expr:height='data:thumbnailSize' expr:src='data:post.thumbnail' expr:width='data:thumbnailSize'/>
+                <div class='item-content'>
+                  <a expr:href='data:post.href' expr:title='data:post.title'>
+                    <b:if cond='data:post.thumbnail'>
+                      <div class='item-thumbnail'>
+                        <img alt='' border='0' expr:height='data:thumbnailSize' expr:src='data:post.thumbnail' expr:width='data:thumbnailSize'/>
+                      </div>
+                    </b:if>
+                    <div class='item-title'>
+                      <data:post.title />
                     </div>
-                  </b:if>
-                  <div class='item-title'>
-                    <data:post.title />
-                  </div>
-                  <div class='item-snippet'>
-                    <data:post.snippet />
-                  </div>
-                </a>
+                    <div class='item-snippet'>
+                      <data:post.snippet />
+                    </div>
+                  </a>
+                </div>
               </b:includable>
             </b:widget>
           </b:section>
@@ -2360,7 +2453,7 @@ html, body {
               <b:widget id='Label1' locked='false' title='Labels' type='Label' version='1' visible='true'>
                 <b:includable id='main'>
                   <h2 class='page-header'><data:title /></h2>
-                  <ul class='nav nav-pills nav-stacked'>
+                  <ul class='nav nav-pills flex-column'>
                     <b:loop var='label' values='data:labels'>
                       <b:include name='labels-label' data='label' />
                     </b:loop>
@@ -2368,9 +2461,9 @@ html, body {
                 </b:includable>
                 <b:includable id='labels-label'>
                   <li class='nav-item'>
-                    <a expr:href='data:label.url' expr:title='data:label.name'>
+                    <a expr:href='data:label.url' expr:title='data:label.name' class='nav-link'>
                       <span><data:label.name /></span>
-                      <span class='badge'><data:label.count /></span>
+                      <span class='badge badge-pill badge-light'><data:label.count /></span>
                     </a>
                   </li>
                 </b:includable>
@@ -2414,7 +2507,7 @@ html, body {
                         <b:include data='i' name='toggle'/>
                         <a class='post-count-link' expr:href='data:i.url'>
                           <data:i.name/>
-                          <span class='badge post-count' dir='ltr'><data:i.post-count/></span>
+                          <span class='badge badge-pill badge-light post-count' dir='ltr'><data:i.post-count/></span>
                         </a>
                         <b:if cond='data:i.data'>
                           <b:include data='i.data' name='interval'/>
@@ -2470,35 +2563,35 @@ html, body {
               <b:widget id='HTML4' locked='false' title='Pages' type='HTML' version='1' visible='true'>
                 <b:includable id='main'>
                   <h2 class='page-header'><data:title /></h2>
-                  <ul class='nav nav-pills nav-stacked footer-page-list'>
+                  <ul class='nav nav-pills flex-column footer-page-list'>
                     <li class='nav-item'>
-                      <a href='//garafu.blogspot.com/'>
+                      <a class='nav-link' href='//garafu.blogspot.com/'>
                         <i class='fa fa-home fa-fw'/>
                         <span>ホーム</span>
                       </a>
                     </li>
                     <li class='nav-item'>
-                      <a href='//garafu.blogspot.com/p/blog-page.html'>
+                      <a class='nav-link' href='//garafu.blogspot.com/p/blog-page.html'>
                         <i class='fa fa-list fa-fw'/>
                         <span>記事一覧</span>
                       </a>
                     </li>
                     <li class='nav-item'>
-                      <a href='//garafu.blogspot.com/p/product.html'>
+                      <a class='nav-link' href='//garafu.blogspot.com/p/product.html'>
                         <i class='fa fa-cubes fa-fw'/>
                         <span>製品一覧</span>
                       </a>
                     </li>
                     <li class='nav-item'>
-                      <a href='//garafu.blogspot.com/p/about.html'>
+                      <a class='nav-link' href='//garafu.blogspot.com/p/about.html'>
                         <i class='fa fa-user fa-fw'/>
                         <span>プロフィール</span>
                       </a>
                     </li>
                   </ul>
-                  <ul class='nav nav-pills nav-stacked footer-page-list'>
+                  <ul class='nav nav-pills flex-column footer-page-list'>
                     <li class='nav-item'>
-                      <a href='//www.facebook.com/galifeblog' target='_blank'>
+                      <a class='nav-link' href='//www.facebook.com/galifeblog' target='_blank'>
                         <i class='fa fa-facebook fa-fw'/>
                         <span>
                           Facebook ページ <i class='fa fa-external-link'/>
@@ -2506,7 +2599,7 @@ html, body {
                       </a>
                     </li>
                     <li class='nav-item'>
-                      <a href='//twitter.com/galifeblog' target='_blank'>
+                      <a class='nav-link' href='//twitter.com/galifeblog' target='_blank'>
                         <i class='fa fa-twitter fa-fw'/>
                         <span>
                           twitter <i class='fa fa-external-link'/>
@@ -2514,7 +2607,7 @@ html, body {
                       </a>
                     </li>
                     <li class='nav-item'>
-                      <a href='//github.com/garafu' target='_blank'>
+                      <a class='nav-link' href='//github.com/garafu' target='_blank'>
                         <i class='fa fa-github fa-fw'/>
                         <span>
                           Github / garafu <i class='fa fa-external-link'/>
@@ -2548,7 +2641,7 @@ html, body {
                       </label>
                       <textarea class='form-control' expr:id='data:widget.instanceId + "_contact-form-email-message"' name='email-message' rows='5'/>
                     </div>
-                    <input expr:id='data:widget.instanceId + "_contact-form-submit"' expr:value='data:contactFormSendMsg' type='button' class='btn btn-default' /> 
+                    <input expr:id='data:widget.instanceId + "_contact-form-submit"' expr:value='data:contactFormSendMsg' type='button' class='btn btn-outline-secondary' /> 
                     <div style='text-align: center; max-width: 222px; width: 100%'>
                       <p class='contact-form-error-message' expr:id='data:widget.instanceId + "_contact-form-error-message"'/>
                       <p class='contact-form-success-message' expr:id='data:widget.instanceId + "_contact-form-success-message"'/>
@@ -2590,7 +2683,7 @@ html, body {
 
 <!-- ▼ script area ▼ -->
   <script src='//www.google.com/jsapi' type='text/javascript'/>
-  <script src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js' type='text/javascript'></script>
+  <script src='//stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js' type='text/javascript'></script>
   <script src='//cdnjs.cloudflare.com/ajax/libs/SyntaxHighlighter/3.0.83/scripts/shCore.js' type='text/javascript'/>
   <script src='//cdnjs.cloudflare.com/ajax/libs/SyntaxHighlighter/3.0.83/scripts/shAutoloader.js' type='text/javascript'/>
   <script src='//cdnjs.cloudflare.com/ajax/libs/SyntaxHighlighter/3.0.83/scripts/shBrushXml.js' type='text/javascript'/>
