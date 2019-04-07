@@ -1253,7 +1253,7 @@ html, body {
   <meta expr:content='data:blog.title' itemprop='name' />
   <meta content='garafu' itemprop='author' />
 
-  <header class='navbar navbar-expand-lg navbar-light bg-light fixed-top' id='navbar' role='navigation' itemscope='itemscope' itemtype='https://schema.org/SiteNavigationElement'>
+  <header class='navbar navbar-expand-lg navbar-light bg-light fixed-top shadow-sm' id='navbar' role='navigation' itemscope='itemscope' itemtype='https://schema.org/SiteNavigationElement'>
     <div class='container'>
 <!-- ▼ header section ▼ -->
       <b:section class='header' id='header' maxwidgets='1' showaddelement='no'>
