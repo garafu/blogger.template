@@ -669,11 +669,6 @@ footer .item-post-social {
   height: 17px;
   background-position: -2px -2px;
 }
-.socialbutton-icon-plusone {
-  width: 17px;
-  height: 17px;
-  background-position: -2px -23px;
-}
 .socialbutton-icon-hatebu {
   width: 17px;
   height: 17px;
@@ -713,12 +708,6 @@ footer .item-post-social {
 }
 .facebook-share-button:hover {
   background-color: #2a3c61;
-}
-.plusone-share-button {
-  background-color: #dc4b39;
-}
-.plusone-share-button:hover {
-  background-color: #c24332;
 }
 .hatena-share-button {
   background-color: #00a4de;
@@ -1588,15 +1577,6 @@ html, body {
             <span class='socialbutton-button'>
               <i class='socialbutton-icon socialbutton-icon-facebook'/>
               <spans class='socialbutton-name'>share</spans>
-            </span>
-          </a>
-        </span>
-        <!-- google +1 -->
-        <span class='socialbutton-item sharebutton_plusone'>
-          <a class='plusone-share-button socialbutton-link' expr:href='"https://plusone.google.com/_/+1/confirm?url=" + data:post.url + "&amp;title=" + data:post.title' target='_blank'>
-            <span class='socialbutton-button'>
-              <i class='socialbutton-icon socialbutton-icon-plusone'/>
-              <span class='socialbutton-name'>+1</span>
             </span>
           </a>
         </span>
