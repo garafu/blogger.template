@@ -1082,6 +1082,8 @@ td.tr-caption {
 h2.strong, h3.strong, h4.strong {
   padding: 14px 20px;
   border-left: 5px solid #dddddd;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
 }
 
 h2.strong {
